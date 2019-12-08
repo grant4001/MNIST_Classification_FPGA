@@ -1,0 +1,2 @@
+cp sam* ../AshuCNN/Outputs
+

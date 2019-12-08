@@ -1,0 +1,17 @@
+-- begin_signature
+-- sram(ADDR_WIDTH
+-- 1
+-- DATA_WIDTH
+-- 16
+-- DEPTH
+-- 1)
+-- end_signature
+WIDTH=16;
+DEPTH=1;
+
+ADDRESS_RADIX=UNS;
+DATA_RADIX=BIN;
+
+CONTENT BEGIN
+	0 :	0000000000000000;
+END;
