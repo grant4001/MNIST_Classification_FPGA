@@ -1,0 +1,3 @@
+Info (10281): Verilog HDL Declaration information at AUTO_SYNC_MODIFY.v(4): object "VS" differs only in case from object "vs" in the same scope File: /home/gyu/Classes/EECS_493/Project_FPGA/DE2_115_D8M_RTL/V_Auto/AUTO_SYNC_MODIFY.v Line: 4
+Info (10281): Verilog HDL Declaration information at AUTO_SYNC_MODIFY.v(5): object "HS" differs only in case from object "hs" in the same scope File: /home/gyu/Classes/EECS_493/Project_FPGA/DE2_115_D8M_RTL/V_Auto/AUTO_SYNC_MODIFY.v Line: 5
+Warning (10273): Verilog HDL warning at Sdram_Control.v(320): extended using "x" or "z" File: /home/gyu/Classes/EECS_493/Project_FPGA/DE2_115_D8M_RTL/V_Sdram_Control/Sdram_Control.v Line: 320
