@@ -2,7 +2,7 @@ function [a l1]=predictcnn(cnn, test_xx)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%(c) Ashutosh Kumar Upadhyay
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- cnn = ffcnn(cnn, test_xx);
+ cnn = ffcnn(cnn, test_xx,14);
  
  if cnn.layers{cnn.no_of_layers}.type ~= 'f'
   zz=[];

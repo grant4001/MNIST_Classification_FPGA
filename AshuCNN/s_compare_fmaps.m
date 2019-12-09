@@ -1,8 +1,8 @@
 % This script compares the Matlab generated fmap with the Verilog
 % generated fmap.
-LAYER_NO = 4;
-FMAP_DIM = 12;
-NUM_FMAPS = 32;
+LAYER_NO = 7;
+FMAP_DIM = 1;
+NUM_FMAPS = 10;
 MATLAB_GEN = 'fmap_layer_matlab.txt';
 HDL_GEN = 'sample.txt';
 

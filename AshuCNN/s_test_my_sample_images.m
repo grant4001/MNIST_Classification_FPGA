@@ -2,11 +2,11 @@
 
 s_load_mnist;
 
-MY_CNN = '14BIT_ERR32.mat';
+MY_CNN = '14BIT_ERR68.mat';
 OUTPUT_FILE = 'cnn_inferred_labels.txt';
 SENTINEL_MANY_SAMPLES = 0; % set if we test more than one sample.
-sample_no = 1; % only applicable if testing 1.
-how_many_samples = 100;
+sample_no = 390; % only applicable if testing 1.
+how_many_samples = 1;
 BITS = 14;
 
 % Harder parameters

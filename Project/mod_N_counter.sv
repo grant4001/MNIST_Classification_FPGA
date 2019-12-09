@@ -12,27 +12,29 @@ module mod_N_counter #(parameter
     input clk,
     input rst,
     input en,
-    output reg [N_BITS-1:0] count,
+    output wire [N_BITS-1:0] count,
     output wire done
 );
 
 wire [N_BITS-1:0] count_next;
-assign done = (count == N - 1);
-assign count_next = (count == N - 1) ? 0 : count + 1;
+reg [N_BITS-1:0] count_t;
+assign done = (count_t == N - 1);
+assign count_next = (count_t == N - 1) ? 0 : count_t + 1;
+assign count = count_t;
 
 always_ff @(posedge clk or posedge rst)
 begin
     if (rst)
     begin
-        count <= 0;
+        count_t <= 0;
     end else
     begin
         if (en)
         begin
-            count <= count_next;
+            count_t <= count_next;
         end else
         begin
-            count <= count;
+            count_t <= count_t;
         end
     end
 end

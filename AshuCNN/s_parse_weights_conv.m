@@ -30,7 +30,7 @@
 CONV_KERNEL_DIM = 3;
 BITS = 14;
 WORD_BITS = 16;
-CNN_NAME = '14BIT_ERR32.mat';
+CNN_NAME = '14BIT_ERR68.mat';
 
 % Open output text file
 fileID = fopen(strcat('Outputs/',OUTPUT_FILE),'w');

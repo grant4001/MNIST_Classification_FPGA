@@ -5,9 +5,9 @@
 s_test_my_sample_images;
 
 OUTPUT_FILE = 'fmap_layer_matlab.txt';
-LAYER_NO = 4;
-FMAP_DIM = 12;
-NUM_FMAPS = 32;
+LAYER_NO = 7;
+FMAP_DIM = 1;
+NUM_FMAPS = 10;
 FIRST_FC_LAYER = 6;
 BITS = 14;
 WORD_BITS = 16;

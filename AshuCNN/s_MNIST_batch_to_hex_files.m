@@ -2,14 +2,14 @@
 % One of them is many samples of MNIST images.
 % The other is a file of labels for those images.
 
-load_mnist;
+s_load_mnist;
 
 % OUTPUT FILE NAMES
 O_IM_NAME = 'mnist_test_digit_set.hex';
 O_LABELS_NAME = 'mnist_test_digit_set_labels.txt';
 
 % NUM SAMPLES
-SAMPLES = 100;
+SAMPLES = 1000;
 
 % Harder parameters
 I_DIM = 30;

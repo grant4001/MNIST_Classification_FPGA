@@ -88,7 +88,7 @@ BITS = 14;
  cnn=cnnAddFCLayer(cnn,10, 'none', BITS ); %add fully connected layer % last layer no of nodes = no of lables
 
 no_of_epochs = 1;
-batch_size=100;
+batch_size=1000;
 display 'training started...Wait for ~200 seconds...'
 tic
 cnn=traincnn(cnn,ntrain_x,train_y, no_of_epochs,batch_size, BITS);

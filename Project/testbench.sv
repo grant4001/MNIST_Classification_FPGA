@@ -10,10 +10,10 @@ module testbench;
 
     /////////////////////////// PARAMETERS ////////////////////////////////////////
 
-    string IN_FILE = "mnist_test_digit.hex";
+    string IN_FILE = "mnist_test_digit_set.hex";
     localparam IMG_DIM = 30;
-    localparam NUM_SAMPLES = 1;
-    time PERIOD = 10ns; // (50 MHz clock)
+    localparam NUM_SAMPLES = 1000;
+    time PERIOD = 20ns; // (50 MHz clock)
 
     ////////////////////////// STRICT PARAMETERS //////////////////////////////////
 
@@ -23,11 +23,12 @@ module testbench;
 
     //////////////////////////////// TB SIGNALS ////////////////////////////////////
 
-    localparam NUM_BYTES = IMG_DIM * IMG_DIM * NUM_SAMPLES;
+    localparam NUM_BYTES_IM = IMG_DIM * IMG_DIM;
+    localparam NUM_BYTES_TOTAL = NUM_BYTES_IM * NUM_SAMPLES;
     reg clk;
     reg rst;
     reg start;
-    reg [GS_BITS-1:0] mem [NUM_BYTES-1:0];
+    reg [GS_BITS-1:0] mem [NUM_BYTES_TOTAL-1:0];
     reg tb_state, tb_state_next;
     reg [31:0] fifo_in_count;
     reg fifo_in_count_en;
@@ -68,7 +69,7 @@ module testbench;
     ///////////////////////////// INITIALIZE MEM /////////////////////////////////
 
     initial begin
-        $readmemh(IN_FILE, mem, 0, NUM_BYTES - 1);
+        $readmemh(IN_FILE, mem, 0, NUM_BYTES_TOTAL - 1);
         $display($time, " << .hex file done reading >> ");
         start = 0;
         clk = 0;
@@ -83,7 +84,7 @@ module testbench;
     /////////////////////////// CLK /////////////////////////////////////////////
 
     always begin
-        #PERIOD clk = ~clk;
+        #(PERIOD/2) clk = ~clk;
     end
 
     ///////////////////////// SEND PIXELS TO DUT /////////////////////////////////
@@ -133,7 +134,7 @@ module testbench;
         
         if (start) 
         begin
-            if (fifo_in_count < NUM_BYTES) 
+            if (fifo_in_count < NUM_BYTES_TOTAL) 
             begin
                 if (~in_fifo_full) 
                 begin
@@ -179,7 +180,7 @@ module testbench;
     ////////////////////////////////// COUNTERS /////////////////////////////////////////
 
     mod_N_counter #(
-        .N(NUM_BYTES),
+        .N(NUM_BYTES_TOTAL),
         .N_BITS(32)
     ) 
     fifo_in_counter 
@@ -191,7 +192,7 @@ module testbench;
     );
 
     mod_N_counter #(
-        .N(NUM_BYTES * NUM_BYTES),
+        .N(NUM_BYTES_IM),
         .N_BITS(32)
     )
     fifo_out_counter

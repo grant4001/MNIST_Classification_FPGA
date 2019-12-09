@@ -4,7 +4,7 @@
 s_load_mnist;
 
 OUTPUT_NAME = 'view_im.bmp';
-SAMPLE_NO = 1;
+SAMPLE_NO = 2;
 IM_DIM = 30;
 
 im = zeros(IM_DIM, IM_DIM);

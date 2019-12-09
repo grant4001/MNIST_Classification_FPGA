@@ -192,6 +192,7 @@ begin
     accum_l6_next = accum_l6;
     classify_pipeline_v_next = 0;
     
+    
     fifo_wr_en = 0;
     fifo_din = 0;
     
@@ -334,10 +335,11 @@ begin
 
                 my_pool_bufs_next[0][0] = relu(accum_o[0] + bi_q_a[127 - (16 * rcv_fmap[2:0])-:16]);
                 
+                /*
                 if (~fifo_full) begin
                     fifo_wr_en = 1;
                     fifo_din = relu(accum_o[0] + bi_q_a[127 - (16 * rcv_fmap[2:0])-:16]);
-                end
+                end*/
 
                 // (x, y) position counter in ofmap
                 fmap_cnt_x_next = fmap_cnt_x + 1;
@@ -484,6 +486,11 @@ begin
                     // (insert code here)
                     //
                     // passes (positive overflow not considered , however)
+                    /*
+                    if (~fifo_full) begin
+                        fifo_wr_en = 1;
+                        fifo_din = relu_sext(accum_l6 + accum_o[0] + {{2{bi_q_a[127 - 16*pool_cnt[5:3]]}}, bi_q_a[127 - 16*pool_cnt[5:3]-:16]} );
+                    end*/
                     
                 end
             end
@@ -501,8 +508,8 @@ begin
             begin
                 pool_cnt_next = pool_cnt + 1;
                 classification_next[pool_cnt] = accum_o[0][15:0] + bi_q_a[127 - 16*pool_cnt[2:0]-:16];
-/*
-                
+
+                /*
                 if (~fifo_full) begin
                     fifo_wr_en = 1;
                     fifo_din = accum_o[0][15:0] + bi_q_a[127 - 16*pool_cnt[2:0]-:16];
@@ -515,8 +522,8 @@ begin
                 pool_cnt_next = 0;
                 rcv_state_next = CLASSIFY;
                 classification_next[pool_cnt] = accum_o[0][15:0] + bi_q_a[127 - 16*pool_cnt[2:0]-:16];
-/*
-                
+
+                /*
                 if (~fifo_full) begin
                     fifo_wr_en = 1;
                     fifo_din = accum_o[0][15:0] + bi_q_a[127 - 16*pool_cnt[2:0]-:16];
@@ -587,6 +594,7 @@ assign digit_o = R4_temp1;
 assign digit_o_valid = R4_valid;
 
 ///////////////////////////// WRITE THE RESULT INTO FIFO ////////////////////////
+
 /*
 always_comb
 begin
@@ -599,8 +607,8 @@ begin
             fifo_wr_en = 1;
         end
     end
-end
-*/
+end*/
+
 
 // dff 
 always_ff @(posedge clk or posedge rst) 

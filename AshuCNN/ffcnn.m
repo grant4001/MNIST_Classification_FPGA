@@ -83,47 +83,47 @@ for i=2:cnn.no_of_layers
                 
                var = zeros(size(cnn.layers{i}.W, 1), size(zz, 2));
                % MUST CUSTOMIZE MATMUL TO INSERT QUANTIZATION.
-%                 for a = 1:size(cnn.layers{i}.W, 1)
-%                     for b = 1:size(zz, 2)
-%                         var(a, b) = 0;
-%                         cnt = 0;
-%                         for c = 1:32
-%                             for d = [1 7 13 19 25 31 2 8 14 20 26 32 3 9 15 21 27 33 4 10 16 22 28 34 5 11 17 23 29 35 6 12 18 24 30 36]
-%                                 var(a, b) = var(a, b) + cnn.layers{i}.W(a, d+36*(c-1)) * zz(d+36*(c-1), b);
-%                                 cnt = cnt + 1;
-%                                 if (mod(cnt, 9) == 0)
-%                                     var(a, b)=s_quantize(var(a, b),BITS);
-%                                 end
-%                             end
-%                         end
-%                     end
-%                 end
-%                 cnn.layers{i}.outputs = s_quantize(applyactfunccnn(var + repmat(cnn.layers{i}.b, 1, size(zz,2)), cnn.layers{i}.act_func, 0), BITS); 
+                for a = 1:size(cnn.layers{i}.W, 1)
+                    for b = 1:size(zz, 2)
+                        var(a, b) = 0;
+                        cnt = 0;
+                        for c = 1:32
+                            for d = [1 7 13 19 25 31 2 8 14 20 26 32 3 9 15 21 27 33 4 10 16 22 28 34 5 11 17 23 29 35 6 12 18 24 30 36]
+                                var(a, b) = var(a, b) + cnn.layers{i}.W(a, d+36*(c-1)) * zz(d+36*(c-1), b);
+                                cnt = cnt + 1;
+                                if (mod(cnt, 9) == 0)
+                                    var(a, b)=s_quantize(var(a, b),BITS);
+                                end
+                            end
+                        end
+                    end
+                end
+                cnn.layers{i}.outputs = s_quantize(applyactfunccnn(var + repmat(cnn.layers{i}.b, 1, size(zz,2)), cnn.layers{i}.act_func, 0), BITS); 
                 
-                 cnn.layers{i}.outputs = applyactfunccnn(cnn.layers{i}.W*zz + repmat(cnn.layers{i}.b, 1, size(zz,2)), cnn.layers{i}.act_func, 0); 
-                 cnn.layers{i}.outputs = s_quantize(cnn.layers{i}.outputs, BITS);
+%                  cnn.layers{i}.outputs = applyactfunccnn(cnn.layers{i}.W*zz + repmat(cnn.layers{i}.b, 1, size(zz,2)), cnn.layers{i}.act_func, 0); 
+%                  cnn.layers{i}.outputs = s_quantize(cnn.layers{i}.outputs, BITS);
 
             else
                 zz= cnn.layers{i-1}.outputs;
                 zz = s_quantize(zz, BITS);
                 
-%                 var = zeros(size(cnn.layers{i}.W, 1), size(zz, 2));
-%                 % MUST CUSTOMIZE MATMUL TO INSERT QUANTIZATION.
-%                 for a = 1:size(cnn.layers{i}.W, 1)
-%                     for b = 1:size(zz, 2)
-%                         var(a, b) = 0;
-%                         for c = 1:size(cnn.layers{i}.W, 2)
-%                             var(a, b) = var(a, b) + cnn.layers{i}.W(a, c) * zz(c, b);
-%                             if (mod(c, 9) == 0)
-%                                 var(a, b)=s_quantize(var(a, b),BITS);
-%                             end
-%                         end
-%                     end
-%                 end
-%                 cnn.layers{i}.outputs = s_quantize(applyactfunccnn(var + repmat(cnn.layers{i}.b, 1, size(zz,2)), cnn.layers{i}.act_func, 0), BITS); 
+                var = zeros(size(cnn.layers{i}.W, 1), size(zz, 2));
+                % MUST CUSTOMIZE MATMUL TO INSERT QUANTIZATION.
+                for a = 1:size(cnn.layers{i}.W, 1)
+                    for b = 1:size(zz, 2)
+                        var(a, b) = 0;
+                        for c = 1:size(cnn.layers{i}.W, 2)
+                            var(a, b) = var(a, b) + cnn.layers{i}.W(a, c) * zz(c, b);
+                            if (mod(c, 9) == 0)
+                                var(a, b)=s_quantize(var(a, b),BITS);
+                            end
+                        end
+                    end
+                end
+                cnn.layers{i}.outputs = s_quantize(applyactfunccnn(var + repmat(cnn.layers{i}.b, 1, size(zz,2)), cnn.layers{i}.act_func, 0), BITS); 
                 
-                  cnn.layers{i}.outputs = applyactfunccnn(cnn.layers{i}.W*zz + repmat(cnn.layers{i}.b, 1, size(zz,2)), cnn.layers{i}.act_func, 0); 
-                  cnn.layers{i}.outputs = s_quantize(cnn.layers{i}.outputs, BITS);
+%                   cnn.layers{i}.outputs = applyactfunccnn(cnn.layers{i}.W*zz + repmat(cnn.layers{i}.b, 1, size(zz,2)), cnn.layers{i}.act_func, 0); 
+%                   cnn.layers{i}.outputs = s_quantize(cnn.layers{i}.outputs, BITS);
             end
                 
         

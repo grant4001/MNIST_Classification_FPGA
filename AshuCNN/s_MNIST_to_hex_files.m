@@ -4,7 +4,7 @@
 s_load_mnist;
 
 OUTPUT_NAME = 'mnist_test_digit.hex';
-sample_no = 1;
+sample_no = 390;
 IM_DIM = 30;
 
 fileID = fopen(strcat('Outputs/', OUTPUT_NAME),'w');
