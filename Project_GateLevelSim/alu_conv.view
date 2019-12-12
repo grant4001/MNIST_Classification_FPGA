@@ -1,0 +1,9 @@
+# Version:1.0 MMMC View Definition File
+# Do Not Remove Above Line
+create_rc_corner -name rc -preRoute_res {1.0} -preRoute_cap {1.0} -preRoute_clkres {0.0} -preRoute_clkcap {0.0} -postRoute_res {1.0} -postRoute_cap {1.0} -postRoute_xcap {1.0} -postRoute_clkres {0.0} -postRoute_clkcap {0.0}
+create_op_cond -name op -library_file {/vol/ece303/genus_tutorial/NangateOpenCellLibrary_typical.lib} -P {10.0} -V {10.0} -T {10.0}
+create_library_set -name lib -timing {/vol/ece303/genus_tutorial/NangateOpenCellLibrary_typical.lib}
+create_constraint_mode -name sdc -sdc_files {../Synthesis/controller._post_synth.sdc}
+create_delay_corner -name de -library_set {lib} -rc_corner {rc}
+create_analysis_view -name an -constraint_mode {sdc} -delay_corner {de}
+set_analysis_view -setup {an} -hold {an}
