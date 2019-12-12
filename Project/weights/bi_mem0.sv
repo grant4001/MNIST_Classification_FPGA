@@ -8,12 +8,12 @@ output reg [DATA_WIDTH-1:0] q_b
 );
 reg [DATA_WIDTH-1:0] mem [0:DEPTH-1];
 initial begin
-mem[0] = 128'hfed4fc89ff59ffbc0000fdf9ffda02c8;
-mem[1] = 128'hff3cff4d004eff650396fd2effe40009;
-mem[2] = 128'hff67ff53fe27fef9004ffee3000c00d6;
-mem[3] = 128'hfeb7001c02ed00cafe1ffdcd038e01ca;
-mem[4] = 128'hffd1ff85ffb3fefe00a1010dfc96ff31;
-mem[5] = 128'h02f2ff88005dff94fe93ff85ff99ffca;
+mem[0] = 128'hf690f3b1f62cfa55f540f9fdf7f2fbf1;
+mem[1] = 128'hf83d0959fdeffa7ffc4df5adfa10ff9f;
+mem[2] = 128'hf85e02adf8cff9c20194f94ef531037c;
+mem[3] = 128'h015f001ffc6bfe31f56cfaae0642ff35;
+mem[4] = 128'h0794fd46034bf991fcdf0616f7eaf3d0;
+mem[5] = 128'hfc2c0420fc21fd22fd8b0575f7a1fd7b;
 mem[6] = 128'hfb0d0f2a0861fe800c4bf1a1f24d06a2;
 mem[7] = 128'h0e04ffa5f2eef234f6470e6303aef07b;
 mem[8] = 128'h07f2f216087dfdf70e340207fae3029c;

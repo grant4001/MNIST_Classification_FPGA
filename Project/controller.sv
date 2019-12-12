@@ -32,6 +32,7 @@ module controller #(parameter LINE_BUF_GROUPS = 16, LINE_BUFS = 2, KERNEL_DIM = 
     output reg [4:0] line_buffer_wr_addr [LINE_BUF_GROUPS-1:0][1:0],
     output reg [15:0] line_buffer_wr_data [LINE_BUF_GROUPS-1:0][1:0],
     output reg line_buffer_wr_en [LINE_BUF_GROUPS-1:0][1:0],
+    // 360
 
     // fmap I memory I/O, for the resulting fmaps of CONV2. (input image -> CONV2 -> fmap I)
     output reg [7:0] fmap_wr_addr_I [15:0],
@@ -39,6 +40,7 @@ module controller #(parameter LINE_BUF_GROUPS = 16, LINE_BUFS = 2, KERNEL_DIM = 
     output reg fmap_wr_en_I [15:0],
     output reg [15:0] fmap_wr_data_I [15:0],
     input [15:0] fmap_rd_data_I [15:0],
+    // 272,s
 
     // fmap II memory I/O, for the resulting fmaps of CONV4. (fmap I -> CONV4 -> fmap II)
     output reg [2:0] fmap_wr_addr_II [143:0],
