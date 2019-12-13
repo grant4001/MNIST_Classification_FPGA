@@ -304,7 +304,7 @@ begin
                 end
                 if (~current_y[1]) 
                 begin
-                    line_buffer_wr_en[k][counter_1b] = 1'b1;
+                    line_buffer_wr_en[k][counter_1b] = 1;
                 end
                 line_buffer_wr_data[k][counter_1b] = fmap_rd_data_I[k];
                 line_buffer_wr_addr[k][counter_1b] = current_x;

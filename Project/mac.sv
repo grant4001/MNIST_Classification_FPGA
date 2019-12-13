@@ -70,10 +70,14 @@ assign w2_3 = weight[63:48];
 assign w3_1 = weight[47:32];
 assign w3_2 = weight[31:16];
 assign w3_3 = weight[15:0];
-//assign accum_row1 = {{2{q1_1[31]}}, q1_1} + {{2{q1_2[31]}}, q1_2} + {{2{q1_3[31]}}, q1_3};
-//assign accum_row2 = {{2{q2_1[31]}}, q2_1} + {{2{q2_2[31]}}, q2_2} + {{2{q2_3[31]}}, q2_3};
-//assign accum_row3 = {{2{q3_1[31]}}, q3_1} + {{2{q3_2[31]}}, q3_2} + {{2{q3_3[31]}}, q3_3};
-//assign accum_all = {{2{accum_row1_reg[33]}}, accum_row1_reg} + {{2{accum_row2_reg[33]}}, accum_row2_reg} + {{2{accum_row3_reg[33]}}, accum_row3_reg};
+
+/*
+assign accum_row1 = {{2{q1_1[31]}}, q1_1} + {{2{q1_2[31]}}, q1_2} + {{2{q1_3[31]}}, q1_3};
+assign accum_row2 = {{2{q2_1[31]}}, q2_1} + {{2{q2_2[31]}}, q2_2} + {{2{q2_3[31]}}, q2_3};
+assign accum_row3 = {{2{q3_1[31]}}, q3_1} + {{2{q3_2[31]}}, q3_2} + {{2{q3_3[31]}}, q3_3};
+assign accum_all = {{2{accum_row1_reg[33]}}, accum_row1_reg} + {{2{accum_row2_reg[33]}}, accum_row2_reg} + {{2{accum_row3_reg[33]}}, accum_row3_reg};
+*/
+
 assign accum_row1 = q1_1 + q1_2 + q1_3;
 assign accum_row2 = q2_1 + q2_2 + q2_3;
 assign accum_row3 = q3_1 + q3_2 + q3_3;

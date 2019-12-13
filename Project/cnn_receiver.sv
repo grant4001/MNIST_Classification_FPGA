@@ -70,17 +70,6 @@ function [15:0] Pool_avg; // unsigned
     end
 endfunction
 
-function [15:0] relu; 
-    input [15:0] x;
-    begin
-        if (~x[15]) begin
-            relu = x;
-        end else begin
-            relu = 0;
-        end
-    end
-endfunction
-
 function [17:0] relu_sext; 
     input [17:0] x;
     begin
@@ -192,9 +181,9 @@ begin
     accum_l6_next = accum_l6;
     classify_pipeline_v_next = 0;
     
-    
+    /*
     fifo_wr_en = 0;
-    fifo_din = 0;
+    fifo_din = 0;*/
     
     case (rcv_state) 
 
@@ -219,8 +208,8 @@ begin
                 // apply activation function
                 for (z = 0; z < 8; z = z + 1)
                 begin
-                    my_pool_bufs_next[0][z] = relu( accum_o[z] + bi_q_a[127 - (16*z)-:16] );
-                    my_pool_bufs_next[0][z+8] = relu(accum_o[z+8] + bi_q_b[127 - (16*z)-:16] );
+                    my_pool_bufs_next[0][z] = relu_sext( accum_o[z] + { {2{bi_q_a[127 - (16*z)]}}, bi_q_a[127 - (16*z)-:16] } );
+                    my_pool_bufs_next[0][z+8] = relu_sext( accum_o[z+8] + { {2{bi_q_b[127 - (16*z)]}}, bi_q_b[127 - (16*z)-:16] } );
                 end
 
                 // FIFO SAMPLING FOR LAYER 2
@@ -230,7 +219,7 @@ begin
                 /*
                 if (~fifo_full) begin
                     fifo_wr_en = 1;
-                    fifo_din = relu( accum_o[0] + bi_q_a[127 - (16*0)-:16] );
+                    fifo_din = relu_sext( accum_o[1+8] + { {2{bi_q_b[127 - (16*1)]}}, bi_q_b[127 - (16*1)-:16] } );
                 end
                 */
 
@@ -333,12 +322,12 @@ begin
                 //
                 // passes
 
-                my_pool_bufs_next[0][0] = relu(accum_o[0] + bi_q_a[127 - (16 * rcv_fmap[2:0])-:16]);
+                my_pool_bufs_next[0][0] = relu_sext(accum_o[0] + { {2{bi_q_a[127 - (16 * rcv_fmap[2:0])]}}, bi_q_a[127 - (16 * rcv_fmap[2:0])-:16] } );
                 
                 /*
                 if (~fifo_full) begin
                     fifo_wr_en = 1;
-                    fifo_din = relu(accum_o[0] + bi_q_a[127 - (16 * rcv_fmap[2:0])-:16]);
+                    fifo_din = relu_sext(accum_o[0] + { {2{bi_q_a[127 - (16 * rcv_fmap[2:0])]}}, bi_q_a[127 - (16 * rcv_fmap[2:0])-:16] } );
                 end*/
 
                 // (x, y) position counter in ofmap
@@ -377,7 +366,7 @@ begin
 
                 // Apply pooling (avg) onto the fmap
                 if (((fmap_cnt_x >= 2) & (fmap_cnt_y >= 1) & (~x_decimate & y_decimate)) | 
-                    ((fmap_cnt_x == 0) & (fmap_cnt_y >= 2) & (~y_decimate))) 
+                    ((~|fmap_cnt_x) & (fmap_cnt_y >= 2) & (~y_decimate))) 
                 begin
                     if (rcv_fmap[0])
                     begin
@@ -595,7 +584,7 @@ assign digit_o_valid = R4_valid;
 
 ///////////////////////////// WRITE THE RESULT INTO FIFO ////////////////////////
 
-/*
+
 always_comb
 begin
     fifo_din = R4_temp1;
@@ -607,7 +596,7 @@ begin
             fifo_wr_en = 1;
         end
     end
-end*/
+end
 
 
 // dff 

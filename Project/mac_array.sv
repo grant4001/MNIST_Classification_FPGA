@@ -29,7 +29,7 @@ module mac_array # (parameter
     output valid_o,
     input [(MULTS_PER_MAC*(DEC_BITS+MANTISSA_BITS))-1:0] ifmap_chunk [NUM_MACS-1:0],   // A flattened 3x3 window of 16-bit input feature map pixels
     input [(MULTS_PER_MAC*(DEC_BITS+MANTISSA_BITS))-1:0] wt [NUM_MACS-1:0],           // A flattened 3x3 window of 16-bit weights
-    output reg [DEC_BITS+MANTISSA_BITS-1+2:0] accum_o [NUM_MACS-1:0]
+    output reg [17:0] accum_o [NUM_MACS-1:0]
 );
 
 localparam TOTAL_BITS = DEC_BITS + MANTISSA_BITS;
@@ -45,13 +45,13 @@ reg [MAX_DELAY-1:0] delay_sreg;
 assign valid_o = (RCV_L2) ? delay_sreg[2] : delay_sreg[4];
 
 // Accumulation registers to accumulate all window convolutions. Only used for layers after layer 2.
-wire signed [TOTAL_BITS-1+2:0] accum1, accum2, accum3, accum4;
-reg signed [TOTAL_BITS-1+2:0] accum1_reg, accum2_reg, accum3_reg, accum4_reg;
-wire signed [TOTAL_BITS-1+2:0] accum_final;
-reg signed [TOTAL_BITS-1+2:0] accum_final_reg;
+wire signed [17:0] accum1, accum2, accum3, accum4;
+reg signed [17:0] accum1_reg, accum2_reg, accum3_reg, accum4_reg;
+wire signed [17:0] accum_final;
+reg signed [17:0] accum_final_reg;
 
 // Outputs of every individual mac unit.
-wire signed [TOTAL_BITS-1+2:0] res [NUM_MACS-1:0];
+wire signed [17:0] res [NUM_MACS-1:0];
 
 // Assign the output of the MAC_ARRAY.
 always_comb
@@ -59,7 +59,7 @@ begin
     // If generating layer 2 feature maps, all 16 accum_o outputs are straight from the 16x MACs.
     for (int i = 0; i < 16; i++)
     begin
-        accum_o[i] = res[i][15:0];
+        accum_o[i] = res[i];
     end
     // Otherwise, if not generating layer 2 feature maps, ONLY use accum_o[0] as the fmap output port.
     if (~RCV_L2) 

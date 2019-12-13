@@ -9,8 +9,11 @@
 #set_attribute lib_search_path {/export/cadence/UofU_SYNS_v1_2/UTFSM_libraries/MW_UTAH} ;# Search path for library files
 #set_attribute library [list UofU_Digital_v1_2.lib] ;# Target Library
 #set_attribute information_level 6 ;# See a lot of warnings.
-set myFiles [list ../mac.sv ../mac_array.sv ../cnn_sender.sv ../cnn_receiver.sv ../controller.sv];
+
+set myFiles [list ../ ../mac.sv ../mac_array.sv ../cnn_sender.sv ../cnn_receiver.sv ../controller.sv];
+
 set basename controller;# name of top level module
+
 #set myClk clk ;# clock name
 #set myPeriod_ps  100000 ;# Clock period in ps - 10MHz
 #set myInDelay_ps   5000 ;# delay from clock to inputs valid - 5 ns

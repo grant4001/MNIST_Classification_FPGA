@@ -7,6 +7,9 @@
 
 module controller #(parameter LINE_BUF_GROUPS = 16, LINE_BUFS = 2, KERNEL_DIM = 3) 
 (
+    //inout VDD,
+    //inout VSS,
+
     input clk,
     input rst,
 

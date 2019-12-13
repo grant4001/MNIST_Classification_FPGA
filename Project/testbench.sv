@@ -13,7 +13,7 @@ module testbench;
     string IN_FILE = "mnist_test_digit_set.hex";
     localparam IMG_DIM = 30;
     localparam NUM_SAMPLES = 1000;
-    time PERIOD = 20ns; // (50 MHz clock)
+    time PERIOD = 8ns; 
 
     ////////////////////////// STRICT PARAMETERS //////////////////////////////////
 
