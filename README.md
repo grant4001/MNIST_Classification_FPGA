@@ -16,6 +16,11 @@ The hardware is described using SystemVerilog, the synthesis was done using Quar
 (2) Terasic D8M GPIO (Image sensor)
 (3) VGA Monitor
 
+To run, connect all of these components together. Hook up a USB cable from your computer to the USB blaster port of the DE2-115. 
+
+Go into Project_FPGA/DE2_115_D8M_RTL/demo_batch and (if you're running Linux) modify test.sh so that your Quartus directories are in the right place.
+Open the terminal, type "./test.sh", and press enter. If you're running Windows, type "test.bat", and press enter.
+
 Demo below. 
 
 
