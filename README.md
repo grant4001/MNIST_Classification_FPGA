@@ -16,6 +16,7 @@ The hardware is described using SystemVerilog, the synthesis was done using Quar
 (2) Terasic D8M GPIO (Image sensor)
 (3) VGA Monitor
 
+Demo below. 
 
 
 
