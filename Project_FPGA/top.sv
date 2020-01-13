@@ -4,68 +4,102 @@
 
 `timescale 1ns/1ns
 
-module top 
-(
+module top #(parameter 
+    GS_BITS = 8, 
+    BCD_BITS = 4, 
+    D_WIDTH = 16,
+
+    LINE_BUF_GROUPS = 16,
+    LINE_BUFS_PER_GROUP = 2,
+    LINE_BUF_DEPTH = 30,
+    LINE_BUF_ADDR_BITS = 5,
+    
+    FMAP_I_MEM_BLKS = 16,
+    FMAP_I_DEPTH = 196,
+    FMAP_I_ADDR_BITS = 8,
+
+    FMAP_II_MEM_BLKS = 144,
+    FMAP_II_DEPTH = 8,
+    FMAP_II_ADDR_BITS = 3,
+
+    FMAP_III_MEM_BLKS = 64,
+    FMAP_III_DEPTH = 1,
+    FMAP_III_ADDR_BITS = 1,
+
+    WEIGHT_MEM_BLKS = 16,
+    WEIGHT_MEM_DEPTH = 76,
+    WEIGHT_MEM_ADDR_BITS = 7,
+    WEIGHT_MEM_D_WIDTH = 144,
+
+    BIAS_MEM_DEPTH = 16,
+    BIAS_MEM_ADDR_BITS = 4,
+    BIAS_MEM_D_WIDTH = 128
+
+) (
     // input MNIST image to the convolutional neural network
     input clk,
     input rst,
-    input [7:0] pixel_i,
+
+    input [GS_BITS-1:0] pixel_i,
     input pixel_i_valid, 
 
     // digit classification output
-    output reg [3:0] digit_o,
+    output reg [BCD_BITS-1:0] digit_o,
     output reg digit_o_valid
 
     // TESTING
     /*
     input fifo_rd_en,
-    output [15:0] fifo_dout,
-    output fifo_empty
-    */
+    output [D_WIDTH-1:0] fifo_dout,
+    output fifo_empty*/
+    
 );
 
-// line buffers
-localparam LINE_BUF_GROUPS = 16;
-localparam LINE_BUFS = 2;
-
-wire [15:0] line_buffer_rd_data [LINE_BUF_GROUPS-1:0][LINE_BUFS-1:0]; // 16-b data
-wire [4:0] line_buffer_rd_addr [LINE_BUF_GROUPS-1:0][LINE_BUFS-1:0]; // log2(30) = 5 bits
-wire [4:0] line_buffer_wr_addr [LINE_BUF_GROUPS-1:0][LINE_BUFS-1:0];
-wire [15:0] line_buffer_wr_data [LINE_BUF_GROUPS-1:0][LINE_BUFS-1:0];
-wire line_buffer_wr_en [LINE_BUF_GROUPS-1:0][LINE_BUFS-1:0];
+// Line buffers
+wire [D_WIDTH-1:0] line_buffer_rd_data [LINE_BUF_GROUPS-1:0][LINE_BUFS_PER_GROUP-1:0]; // 16-b data
+wire [LINE_BUF_ADDR_BITS-1:0] line_buffer_rd_addr [LINE_BUF_GROUPS-1:0][LINE_BUFS_PER_GROUP-1:0]; // log2(30) = 5 bits
+wire [LINE_BUF_ADDR_BITS-1:0] line_buffer_wr_addr [LINE_BUF_GROUPS-1:0][LINE_BUFS_PER_GROUP-1:0];
+wire [D_WIDTH-1:0] line_buffer_wr_data [LINE_BUF_GROUPS-1:0][LINE_BUFS_PER_GROUP-1:0];
+wire line_buffer_wr_en [LINE_BUF_GROUPS-1:0][LINE_BUFS_PER_GROUP-1:0];
 
 // fmap I memory I/O, for the resulting fmaps of CONV2. (input image -> CONV2 -> fmap I)
-wire [7:0] fmap_wr_addr_I [15:0]; // log2(196) = 8 bits
-wire [7:0] fmap_rd_addr_I [15:0];
-wire fmap_wr_en_I [15:0];
-wire [15:0] fmap_wr_data_I [15:0];
-wire [15:0] fmap_rd_data_I [15:0];
+wire [FMAP_I_ADDR_BITS-1:0] fmap_wr_addr_I [FMAP_I_MEM_BLKS-1:0]; 
+wire [FMAP_I_ADDR_BITS-1:0] fmap_rd_addr_I [FMAP_I_MEM_BLKS-1:0];
+wire fmap_wr_en_I [FMAP_I_MEM_BLKS-1:0];
+wire [D_WIDTH-1:0] fmap_wr_data_I [FMAP_I_MEM_BLKS-1:0];
+wire [D_WIDTH-1:0] fmap_rd_data_I [FMAP_I_MEM_BLKS-1:0];
 
 // fmap II memory I/O, for the resulting fmaps of CONV4. (fmap I -> CONV4 -> fmap II)
-wire [2:0] fmap_wr_addr_II [143:0]; // log2(8) = 3 bits
-wire [2:0] fmap_rd_addr_II [143:0]; // log2(8) = 3 bits
-wire fmap_wr_en_II [143:0];
-wire [15:0] fmap_wr_data_II [143:0];
-wire [15:0] fmap_rd_data_II [143:0];
+wire [FMAP_II_ADDR_BITS-1:0] fmap_wr_addr_II [FMAP_II_MEM_BLKS-1:0];
+wire [FMAP_II_ADDR_BITS-1:0] fmap_rd_addr_II [FMAP_II_MEM_BLKS-1:0];
+wire fmap_wr_en_II [FMAP_II_MEM_BLKS-1:0];
+wire [D_WIDTH-1:0] fmap_wr_data_II [FMAP_II_MEM_BLKS-1:0];
+wire [D_WIDTH-1:0] fmap_rd_data_II [FMAP_II_MEM_BLKS-1:0];
 
 // fmap III memory I/O, for the resulting fmaps of FC6. (fmap II -> FC6 -> fmap III).
-wire fmap_wr_addr_III [63:0];
-wire fmap_rd_addr_III [63:0];
-wire fmap_wr_en_III [63:0];
-wire [15:0] fmap_wr_data_III [63:0];
-wire [15:0] fmap_rd_data_III [63:0];
+wire [FMAP_III_ADDR_BITS-1:0] fmap_wr_addr_III [FMAP_III_MEM_BLKS-1:0];
+wire [FMAP_III_ADDR_BITS-1:0] fmap_rd_addr_III [FMAP_III_MEM_BLKS-1:0];
+wire fmap_wr_en_III [FMAP_III_MEM_BLKS-1:0];
+wire [D_WIDTH-1:0] fmap_wr_data_III [FMAP_III_MEM_BLKS-1:0];
+wire [D_WIDTH-1:0] fmap_rd_data_III [FMAP_III_MEM_BLKS-1:0];
 
 // Weight memory (dual port ROM)
-wire [10:0] addr_a [7:0];
-wire [10:0] addr_b [7:0];
-wire [143:0] q_a [7:0];
-wire [143:0] q_b [7:0];
+wire [WEIGHT_MEM_ADDR_BITS-1:0] addr_a [WEIGHT_MEM_BLKS/2-1:0];
+wire [WEIGHT_MEM_ADDR_BITS-1:0] addr_b [WEIGHT_MEM_BLKS/2-1:0];
+wire [WEIGHT_MEM_D_WIDTH-1:0] q_a [WEIGHT_MEM_BLKS/2-1:0];
+wire [WEIGHT_MEM_D_WIDTH-1:0] q_b [WEIGHT_MEM_BLKS/2-1:0];
 
 // Bias memory (dual port ROM)
-wire [3:0] bi_addr_a;
-wire [3:0] bi_addr_b;
-wire [127:0] bi_q_a;
-wire [127:0] bi_q_b;
+wire [BIAS_MEM_ADDR_BITS-1:0] bi_addr_a;
+wire [BIAS_MEM_ADDR_BITS-1:0] bi_addr_b;
+wire [BIAS_MEM_D_WIDTH-1:0] bi_q_a;
+wire [BIAS_MEM_D_WIDTH-1:0] bi_q_b;
+
+///////////////////////////////// FC1 MEM I/O ////////////////////////////////////
+wire [9:0] fc_addr_a [7:0];
+wire [9:0] fc_addr_b [7:0];
+wire [143:0] fc_q_a [7:0];
+wire [143:0] fc_q_b [7:0];
 
 // CNN core
 controller controller_u 
@@ -119,30 +153,46 @@ controller controller_u
 
     // Classification. (fmap III -> FC7 -> 10 registers -> apply max -> get "digit_o" right here)
     .digit_o(digit_o),
-    .digit_o_valid(digit_o_valid)
+    .digit_o_valid(digit_o_valid),
+
+    /// NEW MEMORY IO
+    .fc_addr_a(fc_addr_a),
+    .fc_addr_b(fc_addr_b),
+    .fc_q_a(fc_q_a),
+    .fc_q_b(fc_q_b)
 
     // TESTING
     /*
     .fifo_rd_en(fifo_rd_en),
     .fifo_dout(fifo_dout),
-    .fifo_empty(fifo_empty)
-    */
+    .fifo_empty(fifo_empty)*/
 );
 
-
 // Line buffer memory
-ff_line_buffer_groups ff_line_buffer_groups_u 
+ff_line_buffer_groups #(
+    .LINE_BUF_GROUPS(LINE_BUF_GROUPS),
+    .LINE_BUFS_PER_GROUP(LINE_BUFS_PER_GROUP),
+    .LINE_BUF_ADDR_BITS(LINE_BUF_ADDR_BITS),
+    .D_WIDTH(D_WIDTH),
+    .LINE_BUF_DEPTH(LINE_BUF_DEPTH)
+)
+ff_line_buffer_groups_u 
 (
     .clk(clk),
-    .line_buffer_rd_data(line_buffer_rd_data),
     .line_buffer_rd_addr(line_buffer_rd_addr),
     .line_buffer_wr_addr(line_buffer_wr_addr),
     .line_buffer_wr_data(line_buffer_wr_data),
-    .line_buffer_wr_en(line_buffer_wr_en)    
+    .line_buffer_wr_en(line_buffer_wr_en),
+    .line_buffer_rd_data(line_buffer_rd_data)  
 );
 
 // Fmap memory
-fmap_I #(8, 16, 196) fmap_I_u 
+fmap_I #(
+    .ADDR_WIDTH(FMAP_I_ADDR_BITS),
+    .DATA_WIDTH(D_WIDTH),
+    .DEPTH(FMAP_I_DEPTH)
+)
+fmap_I_u 
 (
     .clk(clk),
     .wr_addr_1(fmap_wr_addr_I[0]),
@@ -265,6 +315,7 @@ wt_mem0 wt_mem0_u (
     .q_a(q_a[0]),
     .q_b(q_b[0])
 );
+
 wt_mem1 wt_mem1_u (
     .clk(clk),
     .addr_a(addr_a[1]),
@@ -272,6 +323,7 @@ wt_mem1 wt_mem1_u (
     .q_a(q_a[1]),
     .q_b(q_b[1])
 );
+
 wt_mem2 wt_mem2_u (
     .clk(clk),
     .addr_a(addr_a[2]),
@@ -279,6 +331,7 @@ wt_mem2 wt_mem2_u (
     .q_a(q_a[2]),
     .q_b(q_b[2])
 );
+
 wt_mem3 wt_mem3_u (
     .clk(clk),
     .addr_a(addr_a[3]),
@@ -286,6 +339,7 @@ wt_mem3 wt_mem3_u (
     .q_a(q_a[3]),
     .q_b(q_b[3])
 );
+
 wt_mem4 wt_mem4_u (
     .clk(clk),
     .addr_a(addr_a[4]),
@@ -293,6 +347,7 @@ wt_mem4 wt_mem4_u (
     .q_a(q_a[4]),
     .q_b(q_b[4])
 );
+
 wt_mem5 wt_mem5_u (
     .clk(clk),
     .addr_a(addr_a[5]),
@@ -300,6 +355,7 @@ wt_mem5 wt_mem5_u (
     .q_a(q_a[5]),
     .q_b(q_b[5])
 );
+
 wt_mem6 wt_mem6_u (
     .clk(clk),
     .addr_a(addr_a[6]),
@@ -307,12 +363,79 @@ wt_mem6 wt_mem6_u (
     .q_a(q_a[6]),
     .q_b(q_b[6])
 );
+
 wt_mem7 wt_mem7_u (
     .clk(clk),
     .addr_a(addr_a[7]),
     .addr_b(addr_b[7]),
     .q_a(q_a[7]),
     .q_b(q_b[7])
+);
+
+////////////////// FC1 WEIGHTS ////////////////////////////////////////
+
+wt_fc1_mem0 u_00 (
+    .clk(clk),
+    .addr_a(fc_addr_a[0]),
+    .addr_b(fc_addr_b[0]),
+    .q_a(fc_q_a[0]),
+    .q_b(fc_q_b[0])
+);
+
+wt_fc1_mem1 u_01 (
+    .clk(clk),
+    .addr_a(fc_addr_a[1]),
+    .addr_b(fc_addr_b[1]),
+    .q_a(fc_q_a[1]),
+    .q_b(fc_q_b[1])
+);
+
+wt_fc1_mem2 u_02 (
+    .clk(clk),
+    .addr_a(fc_addr_a[2]),
+    .addr_b(fc_addr_b[2]),
+    .q_a(fc_q_a[2]),
+    .q_b(fc_q_b[2])
+);
+
+wt_fc1_mem3 u_03 (
+    .clk(clk),
+    .addr_a(fc_addr_a[3]),
+    .addr_b(fc_addr_b[3]),
+    .q_a(fc_q_a[3]),
+    .q_b(fc_q_b[3])
+);
+
+wt_fc1_mem4 u_04 (
+    .clk(clk),
+    .addr_a(fc_addr_a[4]),
+    .addr_b(fc_addr_b[4]),
+    .q_a(fc_q_a[4]),
+    .q_b(fc_q_b[4])
+);
+
+wt_fc1_mem5 u_05 (
+    .clk(clk),
+    .addr_a(fc_addr_a[5]),
+    .addr_b(fc_addr_b[5]),
+    .q_a(fc_q_a[5]),
+    .q_b(fc_q_b[5])
+);
+
+wt_fc1_mem6 u_06 (
+    .clk(clk),
+    .addr_a(fc_addr_a[6]),
+    .addr_b(fc_addr_b[6]),
+    .q_a(fc_q_a[6]),
+    .q_b(fc_q_b[6])
+);
+
+wt_fc1_mem7 u_07 (
+    .clk(clk),
+    .addr_a(fc_addr_a[7]),
+    .addr_b(fc_addr_b[7]),
+    .q_a(fc_q_a[7]),
+    .q_b(fc_q_b[7])
 );
 
 

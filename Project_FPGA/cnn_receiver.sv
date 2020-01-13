@@ -34,15 +34,14 @@ module cnn_receiver
 
     // mac_array I/O
     input valid_o,
-    input [19:0] accum_o [15:0],
+    input [17:0] accum_o [15:0],
     output wire RCV_L2
 
     // TESTING
     /*
     input fifo_rd_en,
     output [15:0] fifo_dout,
-    output fifo_empty
-    */
+    output fifo_empty*/
 );
 
 /*
@@ -61,8 +60,7 @@ fifo #(16, 16) fifo_u
     .dout(fifo_dout),
     .full(fifo_full),
     .empty(fifo_empty)
-);
-*/
+);*/
 
 // Average-pooling function
 function [15:0] Pool_avg; // unsigned
@@ -74,21 +72,10 @@ function [15:0] Pool_avg; // unsigned
     end
 endfunction
 
-function [15:0] relu; 
-    input [15:0] x;
+function [17:0] relu_sext; 
+    input [17:0] x;
     begin
-        if (~x[15]) begin
-            relu = x;
-        end else begin
-            relu = 0;
-        end
-    end
-endfunction
-
-function [19:0] relu_sext; 
-    input [19:0] x;
-    begin
-        if (~x[19]) begin
+        if (~x[17]) begin
             relu_sext = x;
         end else begin
             relu_sext = 0;
@@ -143,7 +130,7 @@ reg signed [15:0] classification_next [9:0];
 reg [4:0] rcv_fmap, rcv_fmap_next; // log2(32) = 5 bits 
 
 // Accumulation register for FC Layer 6
-reg [19:0] accum_l6, accum_l6_next;
+reg [17:0] accum_l6, accum_l6_next;
 
 reg classify_pipeline_v_next;
 
@@ -195,12 +182,11 @@ begin
     rcv_layer_next = rcv_layer;
     accum_l6_next = accum_l6;
     classify_pipeline_v_next = 0;
-
+    
     /*
     fifo_wr_en = 0;
-    fifo_din = 0;
-    */
-
+    fifo_din = 0;*/
+    
     case (rcv_state) 
 
         CONV2_PROCESS : 
@@ -224,14 +210,20 @@ begin
                 // apply activation function
                 for (z = 0; z < 8; z = z + 1)
                 begin
-                    my_pool_bufs_next[0][z] = relu( accum_o[z] + bi_q_a[127 - (16*z)-:16] );
-                    my_pool_bufs_next[0][z+8] = relu(accum_o[z+8] + bi_q_b[127 - (16*z)-:16] );
+                    my_pool_bufs_next[0][z] = relu_sext( accum_o[z] + { {2{bi_q_a[127 - (16*z)]}}, bi_q_a[127 - (16*z)-:16] } );
+                    my_pool_bufs_next[0][z+8] = relu_sext( accum_o[z+8] + { {2{bi_q_b[127 - (16*z)]}}, bi_q_b[127 - (16*z)-:16] } );
                 end
 
                 // FIFO SAMPLING FOR LAYER 2
                 // (insert code here)
                 //
                 // passes
+                /*
+                if (~fifo_full) begin
+                    fifo_wr_en = 1;
+                    fifo_din = relu_sext( accum_o[1+8] + { {2{bi_q_b[127 - (16*1)]}}, bi_q_b[127 - (16*1)-:16] } );
+                end
+                */
 
                 // (x, y) position counter in ofmap
                 fmap_cnt_x_next = fmap_cnt_x + 1;
@@ -251,7 +243,7 @@ begin
                 end
 
                 // (x, y) position counter in the pooled fmap (so 1/4 the original size)
-                if (x_decimate & y_decimate) 
+                if (x_decimate && y_decimate) 
                 begin
                     pool_cnt_x_next = pool_cnt_x + 1;
                     pool_cnt_next = pool_cnt + 1;
@@ -268,8 +260,8 @@ begin
                 end
 
                 // Apply pooling (avg) onto the fmap
-                if (((fmap_cnt_x >= 2) & (fmap_cnt_y >= 1) & (~x_decimate & y_decimate)) | 
-                    ((fmap_cnt_x == 0) & (fmap_cnt_y >= 2) & (~y_decimate))) 
+                if (((fmap_cnt_x >= 2) && (fmap_cnt_y >= 1) && (~x_decimate & y_decimate)) || 
+                    ((fmap_cnt_x == 0) && (fmap_cnt_y >= 2) && (~y_decimate))) 
                 begin
                     for (z = 0; z < 16; z = z + 1) 
                     begin
@@ -277,6 +269,13 @@ begin
                         fmap_wr_addr_I[z] = pool_cnt - 1;
                         fmap_wr_data_I[z] = Pool_avg(my_pool_bufs[0][z], my_pool_bufs[1][z], my_pool_bufs[28][z], my_pool_bufs[29][z]);
                     end
+
+                    // Sample Layer 3 results using FIFO
+                    /*
+                    if (~fifo_full) begin
+                        fifo_wr_en = 1;
+                        fifo_din = Pool_avg(my_pool_bufs[0][0], my_pool_bufs[1][0], my_pool_bufs[28][0], my_pool_bufs[29][0]);
+                    end*/
                 end
             end
         end
@@ -293,6 +292,13 @@ begin
                 fmap_wr_addr_I[z] = 195;
                 fmap_wr_data_I[z] = Pool_avg(my_pool_bufs[0][z], my_pool_bufs[1][z], my_pool_bufs[28][z], my_pool_bufs[29][z]);
             end
+
+            // Sample Layer 3 results using FIFO
+            /*
+            if (~fifo_full) begin
+                fifo_wr_en = 1;
+                fifo_din = Pool_avg(my_pool_bufs[0][0], my_pool_bufs[1][0], my_pool_bufs[28][0], my_pool_bufs[29][0]);
+            end*/
         end
 
         CONV4_PROCESS : 
@@ -318,7 +324,13 @@ begin
                 //
                 // passes
 
-                my_pool_bufs_next[0][0] = relu(accum_o[0] + bi_q_a[127 - (16 * rcv_fmap[2:0])-:16]);
+                my_pool_bufs_next[0][0] = relu_sext(accum_o[0] + { {2{bi_q_a[127 - (16 * rcv_fmap[2:0])]}}, bi_q_a[127 - (16 * rcv_fmap[2:0])-:16] } );
+                
+                /*
+                if (~fifo_full) begin
+                    fifo_wr_en = 1;
+                    fifo_din = relu_sext(accum_o[0] + { {2{bi_q_a[127 - (16 * rcv_fmap[2:0])]}}, bi_q_a[127 - (16 * rcv_fmap[2:0])-:16] } );
+                end*/
 
                 // (x, y) position counter in ofmap
                 fmap_cnt_x_next = fmap_cnt_x + 1;
@@ -338,7 +350,7 @@ begin
                 end
 
                 // (x, y) position counter in the pooled fmap (so half the original size)
-                if (x_decimate & y_decimate) 
+                if (x_decimate && y_decimate) 
                 begin
                     pool_cnt_x_next = pool_cnt_x + 1;
                     pool_cnt_next = pool_cnt + 1;
@@ -355,8 +367,8 @@ begin
                 end
 
                 // Apply pooling (avg) onto the fmap
-                if (((fmap_cnt_x >= 2) & (fmap_cnt_y >= 1) & (~x_decimate & y_decimate)) | 
-                    ((fmap_cnt_x == 0) & (fmap_cnt_y >= 2) & (~y_decimate))) 
+                if (((fmap_cnt_x >= 2) && (fmap_cnt_y >= 1) && (~x_decimate && y_decimate)) || 
+                    ((~|fmap_cnt_x) && (fmap_cnt_y >= 2) && (~y_decimate))) 
                 begin
                     if (rcv_fmap[0])
                     begin
@@ -459,12 +471,17 @@ begin
                 begin
                     accum_l6_next = 0;
                     fmap_wr_en_III[pool_cnt[8:3]] = 1;
-                    fmap_wr_data_III[pool_cnt[8:3]] = relu_sext(accum_l6 + accum_o[0] + {{4{bi_q_a[127 - 16*pool_cnt[5:3]]}}, bi_q_a[127 - 16*pool_cnt[5:3]-:16]} );
+                    fmap_wr_data_III[pool_cnt[8:3]] = relu_sext(accum_l6 + accum_o[0] + {{2{bi_q_a[127 - 16*pool_cnt[5:3]]}}, bi_q_a[127 - 16*pool_cnt[5:3]-:16]} );
 
                     // FIFO SAMPLING FOR LAYER 6
                     // (insert code here)
                     //
                     // passes (positive overflow not considered , however)
+                    /*
+                    if (~fifo_full) begin
+                        fifo_wr_en = 1;
+                        fifo_din = relu_sext(accum_l6 + accum_o[0] + {{2{bi_q_a[127 - 16*pool_cnt[5:3]]}}, bi_q_a[127 - 16*pool_cnt[5:3]-:16]} );
+                    end*/
                     
                 end
             end
@@ -487,8 +504,8 @@ begin
                 if (~fifo_full) begin
                     fifo_wr_en = 1;
                     fifo_din = accum_o[0][15:0] + bi_q_a[127 - 16*pool_cnt[2:0]-:16];
-                end
-                */
+                end*/
+                
             end
 
             if (pool_cnt == 9) 
@@ -500,9 +517,9 @@ begin
                 /*
                 if (~fifo_full) begin
                     fifo_wr_en = 1;
-                    fifo_din = accum_o[0] + bi_q_a[127 - 16*pool_cnt[2:0]-:16];
-                end
-                */
+                    fifo_din = accum_o[0][15:0] + bi_q_a[127 - 16*pool_cnt[2:0]-:16];
+                end*/
+                
             end
         end
 
@@ -567,10 +584,27 @@ assign R4_valid_n = R3_valid;
 assign digit_o = R4_temp1;
 assign digit_o_valid = R4_valid;
 
-// dff 
-always_ff @(posedge clk or posedge rst) 
+///////////////////////////// WRITE THE RESULT INTO FIFO ////////////////////////
+
+/*
+always_comb
 begin
-    if (rst)
+    fifo_din = R4_temp1;
+    fifo_wr_en = 0;
+    if (R4_valid) 
+    begin
+        if (~fifo_full) 
+        begin
+            fifo_wr_en = 1;
+        end
+    end
+end
+*/
+
+// dff 
+always_ff @(posedge clk or negedge rst) 
+begin
+    if (~rst)
     begin
         for (q = 0; q < 30; q = q + 1) 
         begin

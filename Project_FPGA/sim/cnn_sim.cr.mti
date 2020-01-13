@@ -1,0 +1,272 @@
+/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem7.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem7.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module wt_mem7
+
+Top level modules:
+	wt_mem7
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem6.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem6.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module wt_fc1_mem6
+
+Top level modules:
+	wt_fc1_mem6
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem0.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem0.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module wt_mem0
+
+Top level modules:
+	wt_mem0
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/mac.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/mac.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module mac
+
+Top level modules:
+	mac
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module frame_testbench
+
+Top level modules:
+	frame_testbench
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/mnist_only_testbench.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/mnist_only_testbench.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module mnist_only_testbench
+
+Top level modules:
+	mnist_only_testbench
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/top.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/top.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module top
+
+Top level modules:
+	top
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/sram.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/sram.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module sram
+
+Top level modules:
+	sram
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem2.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem2.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module wt_mem2
+
+Top level modules:
+	wt_mem2
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem1.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem1.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module wt_fc1_mem1
+
+Top level modules:
+	wt_fc1_mem1
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/ff_line_buffer_groups.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/ff_line_buffer_groups.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ff_line_buffer_groups
+
+Top level modules:
+	ff_line_buffer_groups
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/cnn_receiver.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/cnn_receiver.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module cnn_receiver
+
+Top level modules:
+	cnn_receiver
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/mod_N_counter.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/mod_N_counter.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module mod_N_counter
+
+Top level modules:
+	mod_N_counter
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/fmap_I.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/fmap_I.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module fmap_I
+
+Top level modules:
+	fmap_I
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem4.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem4.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module wt_mem4
+
+Top level modules:
+	wt_mem4
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem3.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem3.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module wt_fc1_mem3
+
+Top level modules:
+	wt_fc1_mem3
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/fifo.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/fifo.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity fifo
+-- Compiling architecture behavior of fifo
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem6.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem6.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module wt_mem6
+
+Top level modules:
+	wt_mem6
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem5.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem5.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module wt_fc1_mem5
+
+Top level modules:
+	wt_fc1_mem5
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/cnn_sender.sv {2 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/cnn_sender.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module cnn_sender
+** Warning: /home/gyu/Classes/EECS_493/Project_FPGA/cnn_sender.sv(177): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: /home/gyu/Classes/EECS_493/Project_FPGA/cnn_sender.sv(201): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: /home/gyu/Classes/EECS_493/Project_FPGA/cnn_sender.sv(276): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+
+Top level modules:
+	cnn_sender
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/RGB2GRAY.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/RGB2GRAY.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module RGB2GRAY
+
+Top level modules:
+	RGB2GRAY
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem7.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem7.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module wt_fc1_mem7
+
+Top level modules:
+	wt_fc1_mem7
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/bi_mem0.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/bi_mem0.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module bi_mem0
+
+Top level modules:
+	bi_mem0
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem1.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem1.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module wt_mem1
+
+Top level modules:
+	wt_mem1
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem0.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem0.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module wt_fc1_mem0
+
+Top level modules:
+	wt_fc1_mem0
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/segment7.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/segment7.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module segment7
+
+Top level modules:
+	segment7
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/cam2cnn.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/cam2cnn.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module cam2cnn
+
+Top level modules:
+	cam2cnn
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/contour.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/contour.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module contour
+
+Top level modules:
+	contour
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem3.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem3.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module wt_mem3
+
+Top level modules:
+	wt_mem3
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem2.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem2.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module wt_fc1_mem2
+
+Top level modules:
+	wt_fc1_mem2
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/controller.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/controller.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module controller
+
+Top level modules:
+	controller
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/fmap_II.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/fmap_II.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module fmap_II
+
+Top level modules:
+	fmap_II
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/line_buffer_group.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/line_buffer_group.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module line_buffer_group
+
+Top level modules:
+	line_buffer_group
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem5.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem5.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module wt_mem5
+
+Top level modules:
+	wt_mem5
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem4.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem4.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module wt_fc1_mem4
+
+Top level modules:
+	wt_fc1_mem4
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/fmap_III.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/fmap_III.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module fmap_III
+
+Top level modules:
+	fmap_III
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/mac_array.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/mac_array.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module mac_array
+
+Top level modules:
+	mac_array
+
+} {} {}} /home/gyu/Classes/EECS_493/Project_FPGA/contour_draw.sv {1 {vlog -work work -sv -stats=none /home/gyu/Classes/EECS_493/Project_FPGA/contour_draw.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module contour_draw
+
+Top level modules:
+	contour_draw
+
+} {} {}}

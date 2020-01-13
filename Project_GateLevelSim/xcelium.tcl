@@ -1,1 +1,0 @@
-xrun -gui -v93 -access r -xmelab_args "-warnmax 0 -delay_mode zero -maxdelays" fifo.vhd mod_N_counter.sv cnn_nophy.v sram.sv bi_mem0.sv wt_mem0.sv wt_mem1.sv wt_mem2.sv wt_mem3.sv wt_mem4.sv wt_mem5.sv wt_mem6.sv wt_mem7.sv line_buffer_group.sv ff_line_buffer_groups.sv fmap_I.sv fmap_II.sv fmap_III.sv top.sv testbench.sv /vol/ece303/genus_tutorial/NangateOpenCellLibrary.v 

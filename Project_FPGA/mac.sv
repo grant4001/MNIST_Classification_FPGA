@@ -3,35 +3,39 @@
 
 `timescale 1ns/1ns
 
-module mac # (parameter WT_BITS = 16) (
+module mac #(parameter 
+    TOTAL_BITS = 16,
+    MULTS = 9
+) 
+(
     input clk,
     input rst,
     input [143:0] ifmap_chunk, 
     input [143:0] weight,
-    output signed [19:0] mac_output
+    output reg signed [17:0] mac_output
 );
 
 // subwindow pixels
-wire signed [WT_BITS-1:0] p1_1;
-wire signed [WT_BITS-1:0] p1_2;
-wire signed [WT_BITS-1:0] p1_3;
-wire signed [WT_BITS-1:0] p2_1;
-wire signed [WT_BITS-1:0] p2_2;
-wire signed [WT_BITS-1:0] p2_3;
-wire signed [WT_BITS-1:0] p3_1;
-wire signed [WT_BITS-1:0] p3_2;
-wire signed [WT_BITS-1:0] p3_3;
+wire signed [TOTAL_BITS-1:0] p1_1;
+wire signed [TOTAL_BITS-1:0] p1_2;
+wire signed [TOTAL_BITS-1:0] p1_3;
+wire signed [TOTAL_BITS-1:0] p2_1;
+wire signed [TOTAL_BITS-1:0] p2_2;
+wire signed [TOTAL_BITS-1:0] p2_3;
+wire signed [TOTAL_BITS-1:0] p3_1;
+wire signed [TOTAL_BITS-1:0] p3_2;
+wire signed [TOTAL_BITS-1:0] p3_3;
 
 // weights
-wire signed [WT_BITS-1:0] w1_1;
-wire signed [WT_BITS-1:0] w1_2;
-wire signed [WT_BITS-1:0] w1_3;
-wire signed [WT_BITS-1:0] w2_1;
-wire signed [WT_BITS-1:0] w2_2;
-wire signed [WT_BITS-1:0] w2_3;
-wire signed [WT_BITS-1:0] w3_1;
-wire signed [WT_BITS-1:0] w3_2;
-wire signed [WT_BITS-1:0] w3_3;
+wire signed [TOTAL_BITS-1:0] w1_1;
+wire signed [TOTAL_BITS-1:0] w1_2;
+wire signed [TOTAL_BITS-1:0] w1_3;
+wire signed [TOTAL_BITS-1:0] w2_1;
+wire signed [TOTAL_BITS-1:0] w2_2;
+wire signed [TOTAL_BITS-1:0] w2_3;
+wire signed [TOTAL_BITS-1:0] w3_1;
+wire signed [TOTAL_BITS-1:0] w3_2;
+wire signed [TOTAL_BITS-1:0] w3_3;
 
 // product
 reg signed [31:0] q1_1;
@@ -44,10 +48,9 @@ reg signed [31:0] q3_1;
 reg signed [31:0] q3_2;
 reg signed [31:0] q3_3;
 
-wire signed [33:0] accum_row1, accum_row2, accum_row3;
-reg signed [33:0] accum_row1_reg, accum_row2_reg, accum_row3_reg;
-wire signed [35:0] accum_all;
-reg signed [19:0] accum_all_reg;
+wire signed [31:0] accum_row1, accum_row2, accum_row3;
+reg signed [31:0] accum_row1_reg, accum_row2_reg, accum_row3_reg;
+wire signed [31:0] accum_all;
 
 assign p1_1 = ifmap_chunk[143:128]; 
 assign p1_2 = ifmap_chunk[127:112]; 
@@ -67,15 +70,22 @@ assign w2_3 = weight[63:48];
 assign w3_1 = weight[47:32];
 assign w3_2 = weight[31:16];
 assign w3_3 = weight[15:0];
+
+/*
 assign accum_row1 = {{2{q1_1[31]}}, q1_1} + {{2{q1_2[31]}}, q1_2} + {{2{q1_3[31]}}, q1_3};
 assign accum_row2 = {{2{q2_1[31]}}, q2_1} + {{2{q2_2[31]}}, q2_2} + {{2{q2_3[31]}}, q2_3};
 assign accum_row3 = {{2{q3_1[31]}}, q3_1} + {{2{q3_2[31]}}, q3_2} + {{2{q3_3[31]}}, q3_3};
 assign accum_all = {{2{accum_row1_reg[33]}}, accum_row1_reg} + {{2{accum_row2_reg[33]}}, accum_row2_reg} + {{2{accum_row3_reg[33]}}, accum_row3_reg};
-assign mac_output = accum_all_reg; 
+*/
 
-always_ff @(posedge clk or posedge rst) 
+assign accum_row1 = q1_1 + q1_2 + q1_3;
+assign accum_row2 = q2_1 + q2_2 + q2_3;
+assign accum_row3 = q3_1 + q3_2 + q3_3;
+assign accum_all = accum_row1_reg + accum_row2_reg + accum_row3_reg;
+
+always_ff @(posedge clk or negedge rst) 
 begin
-    if (rst) 
+    if (~rst) 
     begin
         q1_1 <= 0;
         q1_2 <= 0;
@@ -89,7 +99,7 @@ begin
         accum_row1_reg <= 0;
         accum_row2_reg <= 0;
         accum_row3_reg <= 0;
-        accum_all_reg <= 0;
+        mac_output <= 0;
     end else begin
         q1_1 <= p1_1 * w1_1;
         q1_2 <= p1_2 * w1_2;
@@ -103,7 +113,7 @@ begin
         accum_row1_reg <= accum_row1;
         accum_row2_reg <= accum_row2;
         accum_row3_reg <= accum_row3;
-        accum_all_reg <= accum_all[35:15];
+        mac_output <= accum_all[31:14];
     end  
 end
 

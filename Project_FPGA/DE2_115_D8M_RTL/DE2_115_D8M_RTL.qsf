@@ -494,50 +494,9 @@ set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 
 
-set_global_assignment -name VERILOG_FILE V/I2C_WRITE_WDATA.v
-set_global_assignment -name VERILOG_FILE V/I2C_WRITE_PTR.v
-set_global_assignment -name VERILOG_FILE V/I2C_RESET_DELAY.v
-set_global_assignment -name VERILOG_FILE V/I2C_READ_DATA.v
-set_global_assignment -name VERILOG_FILE V/pll_test.v
-set_global_assignment -name VERILOG_FILE V/RESET_DELAY.v
-set_global_assignment -name VERILOG_FILE V/CLOCKMEM.v
-set_global_assignment -name VERILOG_FILE V/sdram_pll.v -library sdram_pll
-set_global_assignment -name VERILOG_FILE V/FpsMonitor.v
-set_global_assignment -name SOURCE_FILE VGA_Controller/VGA_Param.h
-set_global_assignment -name VERILOG_FILE VGA_Controller/VGA_Controller.v
 
-set_global_assignment -name VERILOG_FILE V/D8M_LUT.v
-set_global_assignment -name VERILOG_FILE V_D8M/RAW2RGB_J.v
-set_global_assignment -name VERILOG_FILE V_D8M/RAW_RGB_BIN.v
-set_global_assignment -name VERILOG_FILE V_D8M/RAM_READ_COUNTER.v
-set_global_assignment -name VERILOG_FILE V_D8M/MIPI_CAMERA_CONFIG.v
-set_global_assignment -name VERILOG_FILE V_D8M/MIPI_BRIDGE_CONFIG.v
-set_global_assignment -name VERILOG_FILE V_D8M/MIPI_BRIDGE_CAMERA_Config.v
-set_global_assignment -name VERILOG_FILE V_D8M/Line_Buffer_J.v
-set_global_assignment -name VERILOG_FILE V_D8M/int_line.v
-set_global_assignment -name VERILOG_FILE V_Auto/VCM_I2C.v
-set_global_assignment -name VERILOG_FILE V_Auto/VCM_CTRL_P.v
-set_global_assignment -name VERILOG_FILE V_Auto/MODIFY_SYNC.v
-set_global_assignment -name VERILOG_FILE V_Auto/LCD_COUNTER.v
-set_global_assignment -name VERILOG_FILE V_Auto/I2C_DELAY.v
-set_global_assignment -name VERILOG_FILE V_Auto/FOCUS_ADJ.v
-set_global_assignment -name VERILOG_FILE V_Auto/F_VCM.v
-set_global_assignment -name VERILOG_FILE V_Auto/CLOCKMEM.v
-set_global_assignment -name VERILOG_FILE V_Auto/AUTO_SYNC_MODIFY.v
-set_global_assignment -name VERILOG_FILE V_Auto/AUTO_FOCUS_ON.v
-set_global_assignment -name VERILOG_FILE V_Sdram_Control/Sdram_WR_FIFO.v
-set_global_assignment -name VERILOG_FILE V_Sdram_Control/Sdram_RD_FIFO.v
-set_global_assignment -name SOURCE_FILE V_Sdram_Control/Sdram_Params.h
-set_global_assignment -name VERILOG_FILE V_Sdram_Control/Sdram_Control.v
-set_global_assignment -name VERILOG_FILE V_Sdram_Control/sdr_data_path.v
-set_global_assignment -name VERILOG_FILE V_Sdram_Control/control_interface.v
-set_global_assignment -name VERILOG_FILE V_Sdram_Control/command.v
-set_global_assignment -name QIP_FILE V/VIDEO_PLL.qip
-set_global_assignment -name VERILOG_FILE V/CLOCK_DELAY.v
-set_global_assignment -name VERILOG_FILE V_D8M/VGA_RD_COUNTER.v
 set_global_assignment -name ENABLE_SIGNALTAP ON
 set_global_assignment -name USE_SIGNALTAP_FILE vga.stp
-set_global_assignment -name SIGNALTAP_FILE vga.stp
 set_global_assignment -name SLD_NODE_CREATOR_ID 110 -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_ENTITY_NAME sld_signaltap -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to "RAW2RGB_J:u4|RAW_RGB_BIN:bin|CLK" -section_id auto_signaltap_0
@@ -809,6 +768,83 @@ set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[19] -
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[24] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[26] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[27] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_global_assignment -name SYSTEMVERILOG_FILE ../contour.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../contour_draw.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../mnist_classifier_top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../RGB2GRAY.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../mac_array.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../mac.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../line_buffer_group.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../fmap_III.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../fmap_II.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../fmap_I.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../ff_line_buffer_groups.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../controller.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../cnn_sender.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../cnn_receiver.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../cam2cnn.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../bi_mem0.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../wt_mem7.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../wt_mem6.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../wt_mem5.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../wt_mem4.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../wt_mem3.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../wt_mem2.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../wt_mem1.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../wt_mem0.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../wt_fc1_mem7.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../wt_fc1_mem6.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../wt_fc1_mem5.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../wt_fc1_mem4.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../wt_fc1_mem3.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../wt_fc1_mem2.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../wt_fc1_mem1.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../wt_fc1_mem0.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../sram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../segment7.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../mod_N_counter.sv
+set_global_assignment -name VERILOG_FILE V/I2C_WRITE_WDATA.v
+set_global_assignment -name VERILOG_FILE V/I2C_WRITE_PTR.v
+set_global_assignment -name VERILOG_FILE V/I2C_RESET_DELAY.v
+set_global_assignment -name VERILOG_FILE V/I2C_READ_DATA.v
+set_global_assignment -name VERILOG_FILE V/pll_test.v
+set_global_assignment -name VERILOG_FILE V/RESET_DELAY.v
+set_global_assignment -name VERILOG_FILE V/CLOCKMEM.v
+set_global_assignment -name VERILOG_FILE V/sdram_pll.v -library sdram_pll
+set_global_assignment -name VERILOG_FILE V/FpsMonitor.v
+set_global_assignment -name SOURCE_FILE VGA_Controller/VGA_Param.h
+set_global_assignment -name VERILOG_FILE VGA_Controller/VGA_Controller.v
+set_global_assignment -name VERILOG_FILE V/D8M_LUT.v
+set_global_assignment -name VERILOG_FILE V_D8M/RAW2RGB_J.v
+set_global_assignment -name VERILOG_FILE V_D8M/RAW_RGB_BIN.v
+set_global_assignment -name VERILOG_FILE V_D8M/RAM_READ_COUNTER.v
+set_global_assignment -name VERILOG_FILE V_D8M/MIPI_CAMERA_CONFIG.v
+set_global_assignment -name VERILOG_FILE V_D8M/MIPI_BRIDGE_CONFIG.v
+set_global_assignment -name VERILOG_FILE V_D8M/MIPI_BRIDGE_CAMERA_Config.v
+set_global_assignment -name VERILOG_FILE V_D8M/Line_Buffer_J.v
+set_global_assignment -name VERILOG_FILE V_D8M/int_line.v
+set_global_assignment -name VERILOG_FILE V_Auto/VCM_I2C.v
+set_global_assignment -name VERILOG_FILE V_Auto/VCM_CTRL_P.v
+set_global_assignment -name VERILOG_FILE V_Auto/MODIFY_SYNC.v
+set_global_assignment -name VERILOG_FILE V_Auto/LCD_COUNTER.v
+set_global_assignment -name VERILOG_FILE V_Auto/I2C_DELAY.v
+set_global_assignment -name VERILOG_FILE V_Auto/FOCUS_ADJ.v
+set_global_assignment -name VERILOG_FILE V_Auto/F_VCM.v
+set_global_assignment -name VERILOG_FILE V_Auto/CLOCKMEM.v
+set_global_assignment -name VERILOG_FILE V_Auto/AUTO_SYNC_MODIFY.v
+set_global_assignment -name VERILOG_FILE V_Auto/AUTO_FOCUS_ON.v
+set_global_assignment -name VERILOG_FILE V_Sdram_Control/Sdram_WR_FIFO.v
+set_global_assignment -name VERILOG_FILE V_Sdram_Control/Sdram_RD_FIFO.v
+set_global_assignment -name SOURCE_FILE V_Sdram_Control/Sdram_Params.h
+set_global_assignment -name VERILOG_FILE V_Sdram_Control/Sdram_Control.v
+set_global_assignment -name VERILOG_FILE V_Sdram_Control/sdr_data_path.v
+set_global_assignment -name VERILOG_FILE V_Sdram_Control/control_interface.v
+set_global_assignment -name VERILOG_FILE V_Sdram_Control/command.v
+set_global_assignment -name QIP_FILE V/VIDEO_PLL.qip
+set_global_assignment -name VERILOG_FILE V/CLOCK_DELAY.v
+set_global_assignment -name VERILOG_FILE V_D8M/VGA_RD_COUNTER.v
+set_global_assignment -name SIGNALTAP_FILE vga.stp
 set_global_assignment -name SOURCE_FILE ../DE10_NANO_D8M_RTL/VGA_Controller/VGA_Param.h
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name SLD_FILE db/vga_auto_stripped.stp
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

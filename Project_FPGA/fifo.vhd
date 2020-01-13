@@ -5,8 +5,8 @@ use IEEE.numeric_std.all;
 entity fifo is
 generic
 (
-	constant FIFO_DATA_WIDTH : integer := 16;
-	constant FIFO_BUFFER_SIZE : integer := 16
+	constant FIFO_DATA_WIDTH : integer;
+	constant FIFO_BUFFER_SIZE : integer
 );
 port
 (
@@ -143,7 +143,7 @@ begin
 		reset
 	)
 	begin
-		if ( reset = '1' ) then
+		if ( reset = '0' ) then
 			write_addr <= std_logic_vector(resize(to_unsigned(0, 2), ADDR_SIZE));
 		elsif ( rising_edge(wr_clk) ) then
 			write_addr <= write_addr_t;
@@ -157,7 +157,7 @@ begin
 		reset
 	)
 	begin
-		if ( reset = '1' ) then
+		if ( reset = '0' ) then
 			read_addr <= std_logic_vector(resize(to_unsigned(0, 2), ADDR_SIZE));
 		elsif ( rising_edge(rd_clk) ) then
 			read_addr <= read_addr_t;
@@ -171,7 +171,7 @@ begin
 		reset
 	)
 	begin
-		if ( reset = '1' ) then
+		if ( reset = '0' ) then
 			empty <= '1';
 		elsif ( rising_edge(rd_clk) ) then
 			empty <= if_cond(unsigned(write_addr) = unsigned(read_addr_t), '1', '0');

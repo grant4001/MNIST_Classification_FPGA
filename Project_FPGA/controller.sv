@@ -7,6 +7,9 @@
 
 module controller #(parameter LINE_BUF_GROUPS = 16, LINE_BUFS = 2, KERNEL_DIM = 3) 
 (
+    //inout VDD,
+    //inout VSS,
+
     input clk,
     input rst,
 
@@ -15,8 +18,8 @@ module controller #(parameter LINE_BUF_GROUPS = 16, LINE_BUFS = 2, KERNEL_DIM = 
     input pixel_i_valid,
 
     // Weights I/O
-    output reg [10:0] addr_a [7:0],
-    output reg [10:0] addr_b [7:0],
+    output reg [6:0] addr_a [7:0],
+    output reg [6:0] addr_b [7:0],
     input [143:0] q_a [7:0],
     input [143:0] q_b [7:0],
 
@@ -32,6 +35,7 @@ module controller #(parameter LINE_BUF_GROUPS = 16, LINE_BUFS = 2, KERNEL_DIM = 
     output reg [4:0] line_buffer_wr_addr [LINE_BUF_GROUPS-1:0][1:0],
     output reg [15:0] line_buffer_wr_data [LINE_BUF_GROUPS-1:0][1:0],
     output reg line_buffer_wr_en [LINE_BUF_GROUPS-1:0][1:0],
+    // 360
 
     // fmap I memory I/O, for the resulting fmaps of CONV2. (input image -> CONV2 -> fmap I)
     output reg [7:0] fmap_wr_addr_I [15:0],
@@ -39,6 +43,7 @@ module controller #(parameter LINE_BUF_GROUPS = 16, LINE_BUFS = 2, KERNEL_DIM = 
     output reg fmap_wr_en_I [15:0],
     output reg [15:0] fmap_wr_data_I [15:0],
     input [15:0] fmap_rd_data_I [15:0],
+    // 272,s
 
     // fmap II memory I/O, for the resulting fmaps of CONV4. (fmap I -> CONV4 -> fmap II)
     output reg [2:0] fmap_wr_addr_II [143:0],
@@ -56,14 +61,18 @@ module controller #(parameter LINE_BUF_GROUPS = 16, LINE_BUFS = 2, KERNEL_DIM = 
 
     // Classification. (fmap III -> FC7 -> 10 registers -> apply max -> get "digit_o" right here)
     output reg [3:0] digit_o,
-    output reg digit_o_valid
+    output reg digit_o_valid,
+
+    output [9:0] fc_addr_a [7:0],
+    output [9:0] fc_addr_b [7:0],
+    input [143:0] fc_q_a [7:0],
+    input [143:0] fc_q_b [7:0]
 
     // TESTING
     /*
     input fifo_rd_en,
     output [15:0] fifo_dout,
-    output fifo_empty
-    */
+    output fifo_empty*/
 );
 
 // sender to mac signals
@@ -73,7 +82,7 @@ wire [143:0] wt [15:0];
 
 // mac to receiver signals
 wire valid_o;
-wire [19:0] accum_o [15:0];
+wire [17:0] accum_o [15:0];
 wire RCV_L2;
 
 cnn_sender cnn_sender_u 
@@ -90,6 +99,12 @@ cnn_sender cnn_sender_u
     .addr_b(addr_b),
     .q_a(q_a),
     .q_b(q_b),
+
+    //// NEW WEIGHTS FC I/O
+    .fc_addr_a(fc_addr_a),
+    .fc_addr_b(fc_addr_b),
+    .fc_q_a(fc_q_a),
+    .fc_q_b(fc_q_b),
 
     // Line buffer I/O
     .line_buffer_rd_data(line_buffer_rd_data),
@@ -117,7 +132,7 @@ cnn_sender cnn_sender_u
 );
 
 // Connect the mac_array to its controller
-mac_array #(.WT_BITS(16)) mac_array_u 
+mac_array mac_array_u 
 (
     .clk(clk),
     .rst(rst),
@@ -168,8 +183,7 @@ cnn_receiver cnn_receiver_u
     /*
     .fifo_rd_en(fifo_rd_en),
     .fifo_dout(fifo_dout),
-    .fifo_empty(fifo_empty)
-    */
+    .fifo_empty(fifo_empty)*/
 );
 
 endmodule

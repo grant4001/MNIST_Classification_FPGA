@@ -1,0 +1,1110 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+d/home/gyu/Classes/EECS_493/Simulation
+vbi_mem0
+Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+!s110 1578900794
+!i10b 1
+!s100 37Smc]IVLTak<VXZ5AG702
+IGzHFUW0dje?8ElN4`jBWe2
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+!s105 bi_mem0_sv_unit
+S1
+Z2 d/home/gyu/Classes/EECS_493/Project_FPGA/sim
+w1577312587
+8/home/gyu/Classes/EECS_493/Project_FPGA/bi_mem0.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/bi_mem0.sv
+L0 2
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1578900794.000000
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/bi_mem0.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/bi_mem0.sv|
+!i113 1
+Z4 o-work work -sv
+Z5 tCvgOpt 0
+vbox
+R0
+Z6 !s110 1577411959
+!i10b 1
+!s100 UO3=EIlUjSeAk26ggkO^d1
+I3h4mc^]]7bLP3PB3_E39k1
+R1
+!s105 box_sv_unit
+S1
+R2
+w1577411955
+8/home/gyu/Classes/EECS_493/Project_FPGA/box.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/box.sv
+L0 2
+R3
+r1
+!s85 0
+31
+!s108 1577411958.000000
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/box.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/box.sv|
+!i113 1
+R4
+R5
+vbox_draw
+R0
+!s110 1578364208
+!i10b 1
+!s100 gBNDbOId?>?55=WI8H2j90
+In552;c_a>aL3h1n>i;X9J1
+R1
+!s105 box_draw_sv_unit
+S1
+R2
+w1578358561
+8/home/gyu/Classes/EECS_493/Project_FPGA/box_draw.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/box_draw.sv
+L0 4
+R3
+r1
+!s85 0
+31
+!s108 1578364208.000000
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/box_draw.sv|
+!s90 -reportprogress|300|-work|work|-sv|/home/gyu/Classes/EECS_493/Project_FPGA/box_draw.sv|
+!i113 1
+R4
+R5
+vcam2cnn
+R0
+Z7 !s110 1578900795
+!i10b 1
+!s100 Bzaz=N74@Z5HQgPc6^9e:3
+I3kL57;^E2<6ZWjEPk7aGk0
+R1
+!s105 cam2cnn_sv_unit
+S1
+R2
+w1578900778
+8/home/gyu/Classes/EECS_493/Project_FPGA/cam2cnn.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/cam2cnn.sv
+L0 3
+R3
+r1
+!s85 0
+31
+Z8 !s108 1578900795.000000
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/cam2cnn.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/cam2cnn.sv|
+!i113 1
+R4
+R5
+vcnn_receiver
+R0
+R7
+!i10b 1
+!s100 >LRN1aXzM^6@d1:7m9<Ue3
+IUhMVBVdhzn_0N[N@l[DSD2
+R1
+!s105 cnn_receiver_sv_unit
+S1
+R2
+w1577411629
+8/home/gyu/Classes/EECS_493/Project_FPGA/cnn_receiver.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/cnn_receiver.sv
+L0 5
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/cnn_receiver.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/cnn_receiver.sv|
+!i113 1
+R4
+R5
+vcnn_sender
+R0
+R7
+!i10b 1
+!s100 @0<>klkX;DMiA>hccn[oK2
+IVYlG9VK[QfH5[jIE`9NHV1
+R1
+!s105 cnn_sender_sv_unit
+S1
+R2
+w1577401157
+8/home/gyu/Classes/EECS_493/Project_FPGA/cnn_sender.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/cnn_sender.sv
+L0 5
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/cnn_sender.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/cnn_sender.sv|
+!i113 1
+R4
+R5
+vcontour
+R0
+Z9 !s110 1578900797
+!i10b 1
+!s100 3iY1OPhi0nb9dTjn0OSRQ0
+IPefJF8h4C_Q8NJn2P4m5U0
+R1
+!s105 contour_sv_unit
+S1
+R2
+w1578892379
+8/home/gyu/Classes/EECS_493/Project_FPGA/contour.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/contour.sv
+L0 1
+R3
+r1
+!s85 0
+31
+Z10 !s108 1578900797.000000
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/contour.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/contour.sv|
+!i113 1
+R4
+R5
+vcontour_draw
+R0
+R9
+!i10b 1
+!s100 NnaTWA0IIgSBCJHY[a31a3
+I2z>;B24Pb_6X_<BR21kUh3
+R1
+!s105 contour_draw_sv_unit
+S1
+R2
+w1578892367
+8/home/gyu/Classes/EECS_493/Project_FPGA/contour_draw.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/contour_draw.sv
+L0 4
+R3
+r1
+!s85 0
+31
+R10
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/contour_draw.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/contour_draw.sv|
+!i113 1
+R4
+R5
+vcontroller
+R0
+R7
+!i10b 1
+!s100 PhiSTHn9^iln^o];@LSo=0
+IiQc>iL0O@VI<AmFY0i>@N3
+R1
+!s105 controller_sv_unit
+S1
+R2
+w1576222957
+8/home/gyu/Classes/EECS_493/Project_FPGA/controller.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/controller.sv
+L0 8
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/controller.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/controller.sv|
+!i113 1
+R4
+R5
+vDE2_115_D8M_RTL
+!s110 1576145479
+!i10b 1
+!s100 `MPH==oFUCV?a26@a;^UR0
+Ii7KJJ40hYBa>I9hV8Kc;i2
+R1
+R2
+w1576144991
+8/home/gyu/Classes/EECS_493/Project_FPGA/DE2_115_D8M_RTL/DE2_115_D8M_RTL.v
+F/home/gyu/Classes/EECS_493/Project_FPGA/DE2_115_D8M_RTL/DE2_115_D8M_RTL.v
+L0 6
+R3
+r1
+!s85 0
+31
+!s108 1576145479.000000
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/DE2_115_D8M_RTL/DE2_115_D8M_RTL.v|
+!s90 -reportprogress|300|-work|work|/home/gyu/Classes/EECS_493/Project_FPGA/DE2_115_D8M_RTL/DE2_115_D8M_RTL.v|
+!i113 1
+o-work work
+R5
+n@d@e2_115_@d8@m_@r@t@l
+vff_line_buffer_groups
+R0
+R7
+!i10b 1
+!s100 1JD]=@5AhjbAd^mYUbHgC0
+Izkzg?FUQj`:BLBH<STzDS0
+R1
+!s105 ff_line_buffer_groups_sv_unit
+S1
+R2
+w1575776111
+8/home/gyu/Classes/EECS_493/Project_FPGA/ff_line_buffer_groups.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/ff_line_buffer_groups.sv
+L0 7
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/ff_line_buffer_groups.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/ff_line_buffer_groups.sv|
+!i113 1
+R4
+R5
+Efifo
+Z11 w1576224095
+Z12 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z13 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z14 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R2
+Z15 8/home/gyu/Classes/EECS_493/Project_FPGA/fifo.vhd
+Z16 F/home/gyu/Classes/EECS_493/Project_FPGA/fifo.vhd
+l0
+L5
+VZjkXcIM=z0R3G`U8gMhAF2
+!s100 bAVEILO]2]hM;:AP?9mTa3
+Z17 OV;C;10.5b;63
+32
+R9
+!i10b 1
+R10
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/fifo.vhd|
+Z19 !s107 /home/gyu/Classes/EECS_493/Project_FPGA/fifo.vhd|
+!i113 1
+Z20 o-work work -2002 -explicit
+Z21 tExplicit 1 CvgOpt 0
+Abehavior
+R12
+R13
+R14
+Z22 DEx4 work 4 fifo 0 22 ZjkXcIM=z0R3G`U8gMhAF2
+l114
+L26
+Z23 VJ6NHEAXK@7ge;?RnHR`oh1
+Z24 !s100 U`G8H3d4dBRzk^N=<OWeN0
+R17
+32
+R9
+!i10b 1
+R10
+R18
+R19
+!i113 1
+R20
+R21
+vfmap_I
+R0
+R7
+!i10b 1
+!s100 2lDU[AEo4Zl3d3^iY@gOV2
+Ik9CS_Q93Zo6@0F7XnNDXX0
+R1
+!s105 fmap_I_sv_unit
+S1
+R2
+w1573692611
+8/home/gyu/Classes/EECS_493/Project_FPGA/fmap_I.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/fmap_I.sv
+L0 4
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/fmap_I.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/fmap_I.sv|
+!i113 1
+R4
+R5
+nfmap_@i
+vfmap_II
+R0
+R7
+!i10b 1
+!s100 h;BDGeFbo`_UG?oW7oZ<R1
+IgC;d4bkNXc7_Ze<D:8LOF3
+R1
+!s105 fmap_II_sv_unit
+S1
+R2
+w1574276037
+8/home/gyu/Classes/EECS_493/Project_FPGA/fmap_II.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/fmap_II.sv
+L0 4
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/fmap_II.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/fmap_II.sv|
+!i113 1
+R4
+R5
+nfmap_@i@i
+vfmap_III
+R0
+R7
+!i10b 1
+!s100 TihE:k_:aa@5h6T?7`8oU3
+ISDP`XLA2:mCJ?D`zz7UF33
+R1
+!s105 fmap_III_sv_unit
+S1
+R2
+w1574276033
+8/home/gyu/Classes/EECS_493/Project_FPGA/fmap_III.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/fmap_III.sv
+L0 4
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/fmap_III.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/fmap_III.sv|
+!i113 1
+R4
+R5
+nfmap_@i@i@i
+vframe_testbench
+R0
+R9
+!i10b 1
+!s100 Od`6mbDL;m32J6md6dobA0
+IY>`1_jOQ8`WZAKM[VzdMa2
+R1
+!s105 frame_testbench_sv_unit
+S1
+R2
+w1578900286
+8/home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv
+L0 9
+R3
+r1
+!s85 0
+31
+R10
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv|
+!i113 1
+R4
+R5
+vgrayscale
+R0
+R6
+!i10b 1
+!s100 nHd<614nImB@ZA0n;8[b<3
+IbOS:FQehI^oW9F3dJnI6d2
+R1
+!s105 grayscale_sv_unit
+S1
+R2
+w1576628433
+8/home/gyu/Classes/EECS_493/Project_FPGA/grayscale.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/grayscale.sv
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1577411959.000000
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/grayscale.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/grayscale.sv|
+!i113 1
+R4
+R5
+vline_buffer_group
+R0
+R7
+!i10b 1
+!s100 fH@eZ45lUBf6U]`GWk`bJ1
+IS;^ie46E[Hm2_jn=M1oXh3
+R1
+!s105 line_buffer_group_sv_unit
+S1
+R2
+w1575710142
+8/home/gyu/Classes/EECS_493/Project_FPGA/line_buffer_group.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/line_buffer_group.sv
+L0 6
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/line_buffer_group.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/line_buffer_group.sv|
+!i113 1
+R4
+R5
+vmac
+R0
+R7
+!i10b 1
+!s100 KO;0gec^:HHnzOzS5SF=l0
+IP_HP=h9VI[:C0CYf6F_1[0
+R1
+!s105 mac_sv_unit
+S1
+R2
+w1576221248
+8/home/gyu/Classes/EECS_493/Project_FPGA/mac.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/mac.sv
+L0 6
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/mac.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/mac.sv|
+!i113 1
+R4
+R5
+vmac_array
+R0
+R7
+!i10b 1
+!s100 _Z`I0NT[`bXgHPoH`j`TH1
+Io8YeVOK=RiLB>I;XA3czO1
+R1
+!s105 mac_array_sv_unit
+S1
+R2
+w1576221311
+8/home/gyu/Classes/EECS_493/Project_FPGA/mac_array.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/mac_array.sv
+L0 18
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/mac_array.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/mac_array.sv|
+!i113 1
+R4
+R5
+vmnist_classifier_top
+R0
+R9
+!i10b 1
+!s100 hNl88aZao`mMgECEGc[653
+I3<9OKF5VFG4oMjTF>LJGX1
+R1
+!s105 mnist_classifier_top_sv_unit
+S1
+R2
+w1578900342
+8/home/gyu/Classes/EECS_493/Project_FPGA/mnist_classifier_top.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/mnist_classifier_top.sv
+L0 3
+R3
+r1
+!s85 0
+31
+R10
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/mnist_classifier_top.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/mnist_classifier_top.sv|
+!i113 1
+R4
+R5
+vmnist_only_testbench
+R0
+R9
+!i10b 1
+!s100 DR4iLGeMezWjC^9denGZc1
+IMTFK`NUN;YH^EbN:^z9[d2
+R1
+Z25 !s105 mnist_only_testbench_sv_unit
+S1
+R2
+w1578806586
+Z26 8/home/gyu/Classes/EECS_493/Project_FPGA/mnist_only_testbench.sv
+Z27 F/home/gyu/Classes/EECS_493/Project_FPGA/mnist_only_testbench.sv
+L0 9
+R3
+r1
+!s85 0
+31
+R10
+Z28 !s107 /home/gyu/Classes/EECS_493/Project_FPGA/mnist_only_testbench.sv|
+Z29 !s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/mnist_only_testbench.sv|
+!i113 1
+R4
+R5
+vmod_N_counter
+R0
+R7
+!i10b 1
+!s100 Kmhdm:Bm^FV7Cn48[oRmg2
+IgcO_POX8>gIK=MBMNW3>P0
+R1
+!s105 mod_N_counter_sv_unit
+S1
+R2
+w1578785935
+8/home/gyu/Classes/EECS_493/Project_FPGA/mod_N_counter.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/mod_N_counter.sv
+L0 7
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/mod_N_counter.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/mod_N_counter.sv|
+!i113 1
+R4
+R5
+nmod_@n_counter
+vpreprocess_frame
+R0
+!s110 1577411960
+!i10b 1
+!s100 Kl=hGYTZTRcFL4DT9CYgT3
+IITl@H8`Ec;4h3J7;IYIlL3
+R1
+!s105 preprocess_frame_sv_unit
+S1
+R2
+w1577398162
+8/home/gyu/Classes/EECS_493/Project_FPGA/preprocess_frame.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/preprocess_frame.sv
+L0 3
+R3
+r1
+!s85 0
+31
+!s108 1577411960.000000
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/preprocess_frame.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/preprocess_frame.sv|
+!i113 1
+R4
+R5
+vRGB2GRAY
+R0
+R9
+!i10b 1
+!s100 ^HQ4iH=UTQB:n<K@z8Udg2
+IFBOzQaIGU[Q4@1VGYM:lX2
+R1
+!s105 RGB2GRAY_sv_unit
+S1
+R2
+w1578364057
+8/home/gyu/Classes/EECS_493/Project_FPGA/RGB2GRAY.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/RGB2GRAY.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R10
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/RGB2GRAY.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/RGB2GRAY.sv|
+!i113 1
+R4
+R5
+n@r@g@b2@g@r@a@y
+vsegment7
+R0
+R7
+!i10b 1
+!s100 f4Yih2cFm5VNCZ:J^>J_60
+Ig6N29173^10QWlP>3nm8@3
+R1
+!s105 segment7_sv_unit
+S1
+R2
+w1576281285
+8/home/gyu/Classes/EECS_493/Project_FPGA/segment7.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/segment7.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/segment7.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/segment7.sv|
+!i113 1
+R4
+R5
+vsram
+R0
+Z30 !s110 1578900796
+!i10b 1
+!s100 6_ZR_3^gT0?<:Nc6lBDN<0
+I`Q@nKNU7D?f58RE8o1aXM1
+R1
+!s105 sram_sv_unit
+S1
+R2
+w1573678396
+8/home/gyu/Classes/EECS_493/Project_FPGA/sram.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/sram.sv
+L0 7
+R3
+r1
+!s85 0
+31
+R8
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/sram.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/sram.sv|
+!i113 1
+R4
+R5
+vtestbench
+R0
+!s110 1578803181
+!i10b 1
+!s100 ]CP<Jb5lZGefkdf:7edA51
+IgQH0k`Gi4@QbdF^N98^JY1
+R1
+R25
+S1
+R2
+w1576728495
+R26
+R27
+L0 9
+R3
+r1
+!s85 0
+31
+!s108 1578803181.000000
+R28
+R29
+!i113 1
+R4
+R5
+vtop
+R0
+R30
+!i10b 1
+!s100 ;PESMR;kBXWkRgEoo8aMA2
+I^2=<dA:lQN>O9nk34J?e`2
+R1
+!s105 top_sv_unit
+S1
+R2
+w1576222841
+8/home/gyu/Classes/EECS_493/Project_FPGA/top.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/top.sv
+L0 7
+R3
+r1
+!s85 0
+31
+Z31 !s108 1578900796.000000
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/top.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/top.sv|
+!i113 1
+R4
+R5
+vwt_fc1_mem0
+R0
+R30
+!i10b 1
+!s100 jgJ@?6iLhCNiYh0?<;nFY2
+Ikc^6STRY2VcLhEl4[R1[L3
+R1
+!s105 wt_fc1_mem0_sv_unit
+S1
+R2
+Z32 w1577312589
+8/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem0.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem0.sv
+L0 3
+R3
+r1
+!s85 0
+31
+R31
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem0.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem0.sv|
+!i113 1
+R4
+R5
+vwt_fc1_mem1
+R0
+R30
+!i10b 1
+!s100 U4zCYm@YNbFm6KbOUaKnd1
+IHk>?;@ZB[BRQlUP2jb7TR1
+R1
+!s105 wt_fc1_mem1_sv_unit
+S1
+R2
+R32
+8/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem1.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem1.sv
+L0 3
+R3
+r1
+!s85 0
+31
+R31
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem1.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem1.sv|
+!i113 1
+R4
+R5
+vwt_fc1_mem2
+R0
+R30
+!i10b 1
+!s100 E];98kVgEXZa6z0S6cAbR1
+IIE7L:d`RE3[m>1>eTJfnW2
+R1
+!s105 wt_fc1_mem2_sv_unit
+S1
+R2
+R32
+8/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem2.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem2.sv
+L0 3
+R3
+r1
+!s85 0
+31
+R31
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem2.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem2.sv|
+!i113 1
+R4
+R5
+vwt_fc1_mem3
+R0
+R30
+!i10b 1
+!s100 RGON]Yn?5IZ[k;7zhWcKK0
+I1bKf>1@FaJdSV6B:XIQBh0
+R1
+!s105 wt_fc1_mem3_sv_unit
+S1
+R2
+R32
+8/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem3.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem3.sv
+L0 3
+R3
+r1
+!s85 0
+31
+R31
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem3.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem3.sv|
+!i113 1
+R4
+R5
+vwt_fc1_mem4
+R0
+R30
+!i10b 1
+!s100 1:1e0CAIhhNMTV`NQ00Dc3
+I0F`Q8LmJQ88f;d[V7j0dT2
+R1
+!s105 wt_fc1_mem4_sv_unit
+S1
+R2
+R32
+8/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem4.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem4.sv
+L0 3
+R3
+r1
+!s85 0
+31
+R31
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem4.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem4.sv|
+!i113 1
+R4
+R5
+vwt_fc1_mem5
+R0
+R30
+!i10b 1
+!s100 Q5>F1kB[N1dfc2ZLV5DYf0
+I@bQ1CImmkQLj1BRZP3eJe2
+R1
+!s105 wt_fc1_mem5_sv_unit
+S1
+R2
+R32
+8/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem5.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem5.sv
+L0 3
+R3
+r1
+!s85 0
+31
+R31
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem5.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem5.sv|
+!i113 1
+R4
+R5
+vwt_fc1_mem6
+R0
+R30
+!i10b 1
+!s100 0?e_jQ?f55EgV<SlMDLD@3
+I]Lz?M:>7>Dm=VD;ezOXZ[2
+R1
+!s105 wt_fc1_mem6_sv_unit
+S1
+R2
+R32
+8/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem6.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem6.sv
+L0 3
+R3
+r1
+!s85 0
+31
+R31
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem6.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem6.sv|
+!i113 1
+R4
+R5
+vwt_fc1_mem7
+R0
+R30
+!i10b 1
+!s100 BOXO@Wgg_m=>3LWM?<lVZ3
+I2cH<9kgfBhhbibg4GYOX32
+R1
+!s105 wt_fc1_mem7_sv_unit
+S1
+R2
+R32
+8/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem7.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem7.sv
+L0 3
+R3
+r1
+!s85 0
+31
+R31
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem7.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/wt_fc1_mem7.sv|
+!i113 1
+R4
+R5
+vwt_mem0
+R0
+R30
+!i10b 1
+!s100 SQ32Qk6DF8JO[WHnb@GMm0
+II_aS7ZD<Nn4DB_ImcO^5`1
+R1
+!s105 wt_mem0_sv_unit
+S1
+R2
+Z33 w1577312590
+8/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem0.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem0.sv
+L0 3
+R3
+r1
+!s85 0
+31
+R31
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem0.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem0.sv|
+!i113 1
+R4
+R5
+vwt_mem1
+R0
+R9
+!i10b 1
+!s100 ;=@AK66o:loV`]Si5:6800
+IXA4?[_CZ=X4P6P2KRJGY73
+R1
+!s105 wt_mem1_sv_unit
+S1
+R2
+R33
+8/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem1.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem1.sv
+L0 3
+R3
+r1
+!s85 0
+31
+R31
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem1.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem1.sv|
+!i113 1
+R4
+R5
+vwt_mem2
+R0
+R9
+!i10b 1
+!s100 PDVKh6N>:8V8ka[6fHO>b3
+I`0Xd`<fY_k[KP08c@d=:33
+R1
+!s105 wt_mem2_sv_unit
+S1
+R2
+R33
+8/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem2.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem2.sv
+L0 3
+R3
+r1
+!s85 0
+31
+R10
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem2.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem2.sv|
+!i113 1
+R4
+R5
+vwt_mem3
+R0
+R9
+!i10b 1
+!s100 XmnLFJh4R;=ziEL1B<na53
+I<PF3>?[boST0G6cChDzY53
+R1
+!s105 wt_mem3_sv_unit
+S1
+R2
+R33
+8/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem3.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem3.sv
+L0 3
+R3
+r1
+!s85 0
+31
+R10
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem3.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem3.sv|
+!i113 1
+R4
+R5
+vwt_mem4
+R0
+R9
+!i10b 1
+!s100 d`R6ji@ilQ2h4E=4fbQE:1
+IDo]3@6^R?n0gng]<]Q6@]0
+R1
+!s105 wt_mem4_sv_unit
+S1
+R2
+R33
+8/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem4.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem4.sv
+L0 3
+R3
+r1
+!s85 0
+31
+R10
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem4.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem4.sv|
+!i113 1
+R4
+R5
+vwt_mem5
+R0
+R9
+!i10b 1
+!s100 SziYnRJI4Fa`o7b2Hb3b82
+IEI>bh`njdWm?_4415XmV00
+R1
+!s105 wt_mem5_sv_unit
+S1
+R2
+R33
+8/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem5.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem5.sv
+L0 3
+R3
+r1
+!s85 0
+31
+R10
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem5.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem5.sv|
+!i113 1
+R4
+R5
+vwt_mem6
+R0
+R9
+!i10b 1
+!s100 PY=Q0kWIoo_ZXN7NciZAa2
+I4<fHH@:iK:McOXHVAP13Z2
+R1
+!s105 wt_mem6_sv_unit
+S1
+R2
+R33
+8/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem6.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem6.sv
+L0 3
+R3
+r1
+!s85 0
+31
+R10
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem6.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem6.sv|
+!i113 1
+R4
+R5
+vwt_mem7
+R0
+R9
+!i10b 1
+!s100 [j`6[[oCGl<Xj1RoQ`4>c1
+I_kgb9JOFZ2W_A:Q69jN>Q0
+R1
+!s105 wt_mem7_sv_unit
+S1
+R2
+R33
+8/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem7.sv
+F/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem7.sv
+L0 3
+R3
+r1
+!s85 0
+31
+R10
+!s107 /home/gyu/Classes/EECS_493/Project_FPGA/wt_mem7.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|/home/gyu/Classes/EECS_493/Project_FPGA/wt_mem7.sv|
+!i113 1
+R4
+R5

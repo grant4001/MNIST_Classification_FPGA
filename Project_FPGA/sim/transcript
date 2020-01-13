@@ -1,0 +1,808 @@
+# Loading project cnn_sim
+# Compile of bi_mem0.sv was successful.
+# Compile of cam2cnn.sv was successful.
+# Compile of cnn_receiver.sv was successful.
+# Compile of cnn_sender.sv was successful with warnings.
+# Compile of controller.sv was successful.
+# Compile of ff_line_buffer_groups.sv was successful.
+# Compile of fmap_I.sv was successful.
+# Compile of fmap_II.sv was successful.
+# Compile of fmap_III.sv was successful.
+# Compile of line_buffer_group.sv was successful.
+# Compile of mac.sv was successful.
+# Compile of mac_array.sv was successful.
+# Compile of mod_N_counter.sv was successful.
+# Compile of segment7.sv was successful.
+# Compile of sram.sv was successful.
+# Compile of top.sv was successful.
+# Compile of wt_fc1_mem0.sv was successful.
+# Compile of wt_fc1_mem1.sv was successful.
+# Compile of wt_fc1_mem2.sv was successful.
+# Compile of wt_fc1_mem3.sv was successful.
+# Compile of wt_fc1_mem4.sv was successful.
+# Compile of wt_fc1_mem5.sv was successful.
+# Compile of wt_fc1_mem6.sv was successful.
+# Compile of wt_fc1_mem7.sv was successful.
+# Compile of wt_mem0.sv was successful.
+# Compile of wt_mem1.sv was successful.
+# Compile of wt_mem2.sv was successful.
+# Compile of wt_mem3.sv was successful.
+# Compile of wt_mem4.sv was successful.
+# Compile of wt_mem5.sv was successful.
+# Compile of wt_mem6.sv was successful.
+# Compile of wt_mem7.sv was successful.
+# Compile of frame_testbench.sv was successful.
+# Compile of mnist_classifier_top.sv was successful.
+# Compile of RGB2GRAY.sv was successful.
+# Compile of fifo.vhd was successful.
+# Compile of contour.sv was successful.
+# Compile of contour_draw.sv was successful.
+# Compile of mnist_only_testbench.sv was successful.
+# 39 compiles, 0 failed with no errors.
+# Compile of bi_mem0.sv was successful.
+# Compile of cam2cnn.sv was successful.
+# Compile of cnn_receiver.sv was successful.
+# Compile of cnn_sender.sv was successful with warnings.
+# Compile of controller.sv was successful.
+# Compile of ff_line_buffer_groups.sv was successful.
+# Compile of fmap_I.sv was successful.
+# Compile of fmap_II.sv was successful.
+# Compile of fmap_III.sv was successful.
+# Compile of line_buffer_group.sv was successful.
+# Compile of mac.sv was successful.
+# Compile of mac_array.sv was successful.
+# Compile of mod_N_counter.sv was successful.
+# Compile of segment7.sv was successful.
+# Compile of sram.sv was successful.
+# Compile of top.sv was successful.
+# Compile of wt_fc1_mem0.sv was successful.
+# Compile of wt_fc1_mem1.sv was successful.
+# Compile of wt_fc1_mem2.sv was successful.
+# Compile of wt_fc1_mem3.sv was successful.
+# Compile of wt_fc1_mem4.sv was successful.
+# Compile of wt_fc1_mem5.sv was successful.
+# Compile of wt_fc1_mem6.sv was successful.
+# Compile of wt_fc1_mem7.sv was successful.
+# Compile of wt_mem0.sv was successful.
+# Compile of wt_mem1.sv was successful.
+# Compile of wt_mem2.sv was successful.
+# Compile of wt_mem3.sv was successful.
+# Compile of wt_mem4.sv was successful.
+# Compile of wt_mem5.sv was successful.
+# Compile of wt_mem6.sv was successful.
+# Compile of wt_mem7.sv was successful.
+# Compile of frame_testbench.sv was successful.
+# Compile of mnist_classifier_top.sv was successful.
+# Compile of RGB2GRAY.sv was successful.
+# Compile of fifo.vhd was successful.
+# Compile of contour.sv was successful.
+# Compile of contour_draw.sv was successful.
+# Compile of mnist_only_testbench.sv was successful.
+# 39 compiles, 0 failed with no errors.
+# Load canceled
+# Compile of bi_mem0.sv was successful.
+# Compile of cam2cnn.sv was successful.
+# Compile of cnn_receiver.sv was successful.
+# Compile of cnn_sender.sv was successful with warnings.
+# Compile of controller.sv was successful.
+# Compile of ff_line_buffer_groups.sv was successful.
+# Compile of fmap_I.sv was successful.
+# Compile of fmap_II.sv was successful.
+# Compile of fmap_III.sv was successful.
+# Compile of line_buffer_group.sv was successful.
+# Compile of mac.sv was successful.
+# Compile of mac_array.sv was successful.
+# Compile of mod_N_counter.sv was successful.
+# Compile of segment7.sv was successful.
+# Compile of sram.sv was successful.
+# Compile of top.sv was successful.
+# Compile of wt_fc1_mem0.sv was successful.
+# Compile of wt_fc1_mem1.sv was successful.
+# Compile of wt_fc1_mem2.sv was successful.
+# Compile of wt_fc1_mem3.sv was successful.
+# Compile of wt_fc1_mem4.sv was successful.
+# Compile of wt_fc1_mem5.sv was successful.
+# Compile of wt_fc1_mem6.sv was successful.
+# Compile of wt_fc1_mem7.sv was successful.
+# Compile of wt_mem0.sv was successful.
+# Compile of wt_mem1.sv was successful.
+# Compile of wt_mem2.sv was successful.
+# Compile of wt_mem3.sv was successful.
+# Compile of wt_mem4.sv was successful.
+# Compile of wt_mem5.sv was successful.
+# Compile of wt_mem6.sv was successful.
+# Compile of wt_mem7.sv was successful.
+# Compile of frame_testbench.sv was successful.
+# Compile of mnist_classifier_top.sv was successful.
+# Compile of RGB2GRAY.sv was successful.
+# Compile of fifo.vhd was successful.
+# Compile of contour.sv was successful.
+# Compile of contour_draw.sv was successful.
+# Compile of mnist_only_testbench.sv was successful.
+# 39 compiles, 0 failed with no errors.
+vsim work.frame_testbench
+# vsim work.frame_testbench 
+# Start time: 12:54:04 on Jan 12,2020
+# Loading sv_std.std
+# Loading work.frame_testbench
+# Loading work.mnist_classifier_top
+# Loading work.contour_draw
+# Loading work.contour
+# Loading work.RGB2GRAY
+# Loading work.cam2cnn
+# Loading work.top
+# Loading work.controller
+# Loading work.cnn_sender
+# Loading work.mac_array
+# Loading work.cnn_receiver
+# Loading work.ff_line_buffer_groups
+# Loading work.fmap_I
+# Loading work.sram
+# Loading work.fmap_II
+# Loading work.fmap_III
+# Loading work.bi_mem0
+# Loading work.wt_mem0
+# Loading work.wt_mem1
+# Loading work.wt_mem2
+# Loading work.wt_mem3
+# Loading work.wt_mem4
+# Loading work.wt_mem5
+# Loading work.wt_mem6
+# Loading work.wt_mem7
+# Loading work.wt_fc1_mem0
+# Loading work.wt_fc1_mem1
+# Loading work.wt_fc1_mem2
+# Loading work.wt_fc1_mem3
+# Loading work.wt_fc1_mem4
+# Loading work.wt_fc1_mem5
+# Loading work.wt_fc1_mem6
+# Loading work.wt_fc1_mem7
+# Loading work.mod_N_counter
+# Loading work.segment7
+# Loading work.mac
+# Loading work.line_buffer_group
+# ** Warning: (vsim-3017) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): [TFMPC] - Too few port connections. Expected 16, found 12.
+#    Time: 0 ns  Iteration: 0  Instance: /frame_testbench/dut File: /home/gyu/Classes/EECS_493/Project_FPGA/mnist_classifier_top.sv
+# ** Error: (vsim-3063) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): Port 'DIGIT_OUT' not found in the connected module (10th connection).
+#    Time: 0 ns  Iteration: 0  Instance: /frame_testbench/dut File: /home/gyu/Classes/EECS_493/Project_FPGA/mnist_classifier_top.sv
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): [TFMPC] - Missing connection for port 'CONTOUR_MODE'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): [TFMPC] - Missing connection for port 'oVGA_R'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): [TFMPC] - Missing connection for port 'oVGA_G'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): [TFMPC] - Missing connection for port 'oVGA_B'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): [TFMPC] - Missing connection for port 'HEX7'.
+# ** Warning: (vsim-3015) /home/gyu/Classes/EECS_493/Project_FPGA/mnist_classifier_top.sv(67): [PCDPC] - Port size (4) does not match connection size (1) for port 'digit'. The port definition is at: /home/gyu/Classes/EECS_493/Project_FPGA/cam2cnn.sv(10).
+#    Time: 0 ns  Iteration: 0  Instance: /frame_testbench/dut/u2 File: /home/gyu/Classes/EECS_493/Project_FPGA/cam2cnn.sv
+# ** Warning: (vsim-3015) /home/gyu/Classes/EECS_493/Project_FPGA/mnist_classifier_top.sv(79): [PCDPC] - Port size (4) does not match connection size (1) for port 'bcd'. The port definition is at: /home/gyu/Classes/EECS_493/Project_FPGA/segment7.sv(3).
+#    Time: 0 ns  Iteration: 0  Instance: /frame_testbench/dut/u3 File: /home/gyu/Classes/EECS_493/Project_FPGA/segment7.sv
+# ** Warning: (vsim-3017) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(154): [TFMPC] - Too few port connections. Expected 5, found 4.
+#    Time: 0 ns  Iteration: 0  Instance: /frame_testbench/pixel_counter File: /home/gyu/Classes/EECS_493/Project_FPGA/mod_N_counter.sv
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(154): [TFMPC] - Missing connection for port 'done'.
+# Error loading design
+# End time: 12:54:04 on Jan 12,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 10
+# Compile of bi_mem0.sv was successful.
+# Compile of cam2cnn.sv was successful.
+# Compile of cnn_receiver.sv was successful.
+# Compile of cnn_sender.sv was successful with warnings.
+# Compile of controller.sv was successful.
+# Compile of ff_line_buffer_groups.sv was successful.
+# Compile of fmap_I.sv was successful.
+# Compile of fmap_II.sv was successful.
+# Compile of fmap_III.sv was successful.
+# Compile of line_buffer_group.sv was successful.
+# Compile of mac.sv was successful.
+# Compile of mac_array.sv was successful.
+# Compile of mod_N_counter.sv was successful.
+# Compile of segment7.sv was successful.
+# Compile of sram.sv was successful.
+# Compile of top.sv was successful.
+# Compile of wt_fc1_mem0.sv was successful.
+# Compile of wt_fc1_mem1.sv was successful.
+# Compile of wt_fc1_mem2.sv was successful.
+# Compile of wt_fc1_mem3.sv was successful.
+# Compile of wt_fc1_mem4.sv was successful.
+# Compile of wt_fc1_mem5.sv was successful.
+# Compile of wt_fc1_mem6.sv was successful.
+# Compile of wt_fc1_mem7.sv was successful.
+# Compile of wt_mem0.sv was successful.
+# Compile of wt_mem1.sv was successful.
+# Compile of wt_mem2.sv was successful.
+# Compile of wt_mem3.sv was successful.
+# Compile of wt_mem4.sv was successful.
+# Compile of wt_mem5.sv was successful.
+# Compile of wt_mem6.sv was successful.
+# Compile of wt_mem7.sv was successful.
+# Compile of frame_testbench.sv was successful.
+# Compile of mnist_classifier_top.sv was successful.
+# Compile of RGB2GRAY.sv was successful.
+# Compile of fifo.vhd was successful.
+# Compile of contour.sv was successful.
+# Compile of contour_draw.sv was successful.
+# Compile of mnist_only_testbench.sv was successful.
+# 39 compiles, 0 failed with no errors.
+vsim work.frame_testbench
+# vsim work.frame_testbench 
+# Start time: 12:55:07 on Jan 12,2020
+# Loading sv_std.std
+# Loading work.frame_testbench
+# Loading work.mnist_classifier_top
+# Loading work.contour_draw
+# Loading work.contour
+# Loading work.RGB2GRAY
+# Loading work.cam2cnn
+# Loading work.top
+# Loading work.controller
+# Loading work.cnn_sender
+# Loading work.mac_array
+# Loading work.cnn_receiver
+# Loading work.ff_line_buffer_groups
+# Loading work.fmap_I
+# Loading work.sram
+# Loading work.fmap_II
+# Loading work.fmap_III
+# Loading work.bi_mem0
+# Loading work.wt_mem0
+# Loading work.wt_mem1
+# Loading work.wt_mem2
+# Loading work.wt_mem3
+# Loading work.wt_mem4
+# Loading work.wt_mem5
+# Loading work.wt_mem6
+# Loading work.wt_mem7
+# Loading work.wt_fc1_mem0
+# Loading work.wt_fc1_mem1
+# Loading work.wt_fc1_mem2
+# Loading work.wt_fc1_mem3
+# Loading work.wt_fc1_mem4
+# Loading work.wt_fc1_mem5
+# Loading work.wt_fc1_mem6
+# Loading work.wt_fc1_mem7
+# Loading work.mod_N_counter
+# Loading work.segment7
+# Loading work.mac
+# Loading work.line_buffer_group
+# ** Warning: (vsim-3017) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): [TFMPC] - Too few port connections. Expected 17, found 12.
+#    Time: 0 ns  Iteration: 0  Instance: /frame_testbench/dut File: /home/gyu/Classes/EECS_493/Project_FPGA/mnist_classifier_top.sv
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): [TFMPC] - Missing connection for port 'CONTOUR_MODE'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): [TFMPC] - Missing connection for port 'oVGA_R'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): [TFMPC] - Missing connection for port 'oVGA_G'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): [TFMPC] - Missing connection for port 'oVGA_B'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): [TFMPC] - Missing connection for port 'HEX7'.
+# ** Warning: (vsim-3017) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(154): [TFMPC] - Too few port connections. Expected 5, found 4.
+#    Time: 0 ns  Iteration: 0  Instance: /frame_testbench/pixel_counter File: /home/gyu/Classes/EECS_493/Project_FPGA/mod_N_counter.sv
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(154): [TFMPC] - Missing connection for port 'done'.
+# ** Warning: Design size of 10486 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint sim:/frame_testbench/*
+run -all
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+#                    0 << .hex file done reading >> 
+#                   80 << rst finished >> 
+#                   80 << Simulation started >> 
+quit -sim
+# End time: 12:58:29 on Jan 12,2020, Elapsed time: 0:03:22
+# Errors: 0, Warnings: 11
+# Compile of bi_mem0.sv was successful.
+# Compile of cam2cnn.sv was successful.
+# Compile of cnn_receiver.sv was successful.
+# Compile of cnn_sender.sv was successful with warnings.
+# Compile of controller.sv was successful.
+# Compile of ff_line_buffer_groups.sv was successful.
+# Compile of fmap_I.sv was successful.
+# Compile of fmap_II.sv was successful.
+# Compile of fmap_III.sv was successful.
+# Compile of line_buffer_group.sv was successful.
+# Compile of mac.sv was successful.
+# Compile of mac_array.sv was successful.
+# Compile of mod_N_counter.sv was successful.
+# Compile of segment7.sv was successful.
+# Compile of sram.sv was successful.
+# Compile of top.sv was successful.
+# Compile of wt_fc1_mem0.sv was successful.
+# Compile of wt_fc1_mem1.sv was successful.
+# Compile of wt_fc1_mem2.sv was successful.
+# Compile of wt_fc1_mem3.sv was successful.
+# Compile of wt_fc1_mem4.sv was successful.
+# Compile of wt_fc1_mem5.sv was successful.
+# Compile of wt_fc1_mem6.sv was successful.
+# Compile of wt_fc1_mem7.sv was successful.
+# Compile of wt_mem0.sv was successful.
+# Compile of wt_mem1.sv was successful.
+# Compile of wt_mem2.sv was successful.
+# Compile of wt_mem3.sv was successful.
+# Compile of wt_mem4.sv was successful.
+# Compile of wt_mem5.sv was successful.
+# Compile of wt_mem6.sv was successful.
+# Compile of wt_mem7.sv was successful.
+# Compile of frame_testbench.sv was successful.
+# Compile of mnist_classifier_top.sv was successful.
+# Compile of RGB2GRAY.sv was successful.
+# Compile of fifo.vhd was successful.
+# Compile of contour.sv was successful.
+# Compile of contour_draw.sv was successful.
+# Compile of mnist_only_testbench.sv was successful.
+# 39 compiles, 0 failed with no errors.
+vsim work.frame_testbench
+# vsim work.frame_testbench 
+# Start time: 12:58:37 on Jan 12,2020
+# Loading sv_std.std
+# Loading work.frame_testbench
+# Loading work.mnist_classifier_top
+# Loading work.contour_draw
+# Loading work.contour
+# Loading work.RGB2GRAY
+# Loading work.cam2cnn
+# Loading work.top
+# Loading work.controller
+# Loading work.cnn_sender
+# Loading work.mac_array
+# Loading work.cnn_receiver
+# Loading work.ff_line_buffer_groups
+# Loading work.fmap_I
+# Loading work.sram
+# Loading work.fmap_II
+# Loading work.fmap_III
+# Loading work.bi_mem0
+# Loading work.wt_mem0
+# Loading work.wt_mem1
+# Loading work.wt_mem2
+# Loading work.wt_mem3
+# Loading work.wt_mem4
+# Loading work.wt_mem5
+# Loading work.wt_mem6
+# Loading work.wt_mem7
+# Loading work.wt_fc1_mem0
+# Loading work.wt_fc1_mem1
+# Loading work.wt_fc1_mem2
+# Loading work.wt_fc1_mem3
+# Loading work.wt_fc1_mem4
+# Loading work.wt_fc1_mem5
+# Loading work.wt_fc1_mem6
+# Loading work.wt_fc1_mem7
+# Loading work.mod_N_counter
+# Loading work.segment7
+# Loading work.mac
+# Loading work.line_buffer_group
+# ** Warning: (vsim-3017) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): [TFMPC] - Too few port connections. Expected 17, found 12.
+#    Time: 0 ns  Iteration: 0  Instance: /frame_testbench/dut File: /home/gyu/Classes/EECS_493/Project_FPGA/mnist_classifier_top.sv
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): [TFMPC] - Missing connection for port 'CONTOUR_MODE'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): [TFMPC] - Missing connection for port 'oVGA_R'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): [TFMPC] - Missing connection for port 'oVGA_G'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): [TFMPC] - Missing connection for port 'oVGA_B'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(55): [TFMPC] - Missing connection for port 'HEX7'.
+# ** Warning: (vsim-3017) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(154): [TFMPC] - Too few port connections. Expected 5, found 4.
+#    Time: 0 ns  Iteration: 0  Instance: /frame_testbench/pixel_counter File: /home/gyu/Classes/EECS_493/Project_FPGA/mod_N_counter.sv
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(154): [TFMPC] - Missing connection for port 'done'.
+# ** Warning: Design size of 10486 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint sim:/frame_testbench/*
+run -all
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+#                    0 << .hex file done reading >> 
+#                   80 << rst finished >> 
+#                   80 << Simulation started >> 
+quit -sim
+# End time: 00:18:43 on Jan 13,2020, Elapsed time: 11:20:06
+# Errors: 0, Warnings: 11
+# Compile of bi_mem0.sv was successful.
+# Compile of cam2cnn.sv failed with 1 errors.
+# Compile of cnn_receiver.sv was successful.
+# Compile of cnn_sender.sv was successful with warnings.
+# Compile of controller.sv was successful.
+# Compile of ff_line_buffer_groups.sv was successful.
+# Compile of fmap_I.sv was successful.
+# Compile of fmap_II.sv was successful.
+# Compile of fmap_III.sv was successful.
+# Compile of line_buffer_group.sv was successful.
+# Compile of mac.sv was successful.
+# Compile of mac_array.sv was successful.
+# Compile of mod_N_counter.sv was successful.
+# Compile of segment7.sv was successful.
+# Compile of sram.sv was successful.
+# Compile of top.sv was successful.
+# Compile of wt_fc1_mem0.sv was successful.
+# Compile of wt_fc1_mem1.sv was successful.
+# Compile of wt_fc1_mem2.sv was successful.
+# Compile of wt_fc1_mem3.sv was successful.
+# Compile of wt_fc1_mem4.sv was successful.
+# Compile of wt_fc1_mem5.sv was successful.
+# Compile of wt_fc1_mem6.sv was successful.
+# Compile of wt_fc1_mem7.sv was successful.
+# Compile of wt_mem0.sv was successful.
+# Compile of wt_mem1.sv was successful.
+# Compile of wt_mem2.sv was successful.
+# Compile of wt_mem3.sv was successful.
+# Compile of wt_mem4.sv was successful.
+# Compile of wt_mem5.sv was successful.
+# Compile of wt_mem6.sv was successful.
+# Compile of wt_mem7.sv was successful.
+# Compile of frame_testbench.sv was successful.
+# Compile of mnist_classifier_top.sv was successful.
+# Compile of RGB2GRAY.sv was successful.
+# Compile of fifo.vhd was successful.
+# Compile of contour.sv was successful.
+# Compile of contour_draw.sv was successful.
+# Compile of mnist_only_testbench.sv was successful.
+# 39 compiles, 1 failed with 1 error.
+# Compile of bi_mem0.sv was successful.
+# Compile of cam2cnn.sv was successful.
+# Compile of cnn_receiver.sv was successful.
+# Compile of cnn_sender.sv was successful with warnings.
+# Compile of controller.sv was successful.
+# Compile of ff_line_buffer_groups.sv was successful.
+# Compile of fmap_I.sv was successful.
+# Compile of fmap_II.sv was successful.
+# Compile of fmap_III.sv was successful.
+# Compile of line_buffer_group.sv was successful.
+# Compile of mac.sv was successful.
+# Compile of mac_array.sv was successful.
+# Compile of mod_N_counter.sv was successful.
+# Compile of segment7.sv was successful.
+# Compile of sram.sv was successful.
+# Compile of top.sv was successful.
+# Compile of wt_fc1_mem0.sv was successful.
+# Compile of wt_fc1_mem1.sv was successful.
+# Compile of wt_fc1_mem2.sv was successful.
+# Compile of wt_fc1_mem3.sv was successful.
+# Compile of wt_fc1_mem4.sv was successful.
+# Compile of wt_fc1_mem5.sv was successful.
+# Compile of wt_fc1_mem6.sv was successful.
+# Compile of wt_fc1_mem7.sv was successful.
+# Compile of wt_mem0.sv was successful.
+# Compile of wt_mem1.sv was successful.
+# Compile of wt_mem2.sv was successful.
+# Compile of wt_mem3.sv was successful.
+# Compile of wt_mem4.sv was successful.
+# Compile of wt_mem5.sv was successful.
+# Compile of wt_mem6.sv was successful.
+# Compile of wt_mem7.sv was successful.
+# Compile of frame_testbench.sv was successful.
+# Compile of mnist_classifier_top.sv was successful.
+# Compile of RGB2GRAY.sv was successful.
+# Compile of fifo.vhd was successful.
+# Compile of contour.sv was successful.
+# Compile of contour_draw.sv was successful.
+# Compile of mnist_only_testbench.sv was successful.
+# 39 compiles, 0 failed with no errors.
+# Compile of bi_mem0.sv was successful.
+# Compile of cam2cnn.sv was successful.
+# Compile of cnn_receiver.sv was successful.
+# Compile of cnn_sender.sv was successful.
+# Compile of controller.sv was successful.
+# Compile of ff_line_buffer_groups.sv was successful.
+# Compile of fmap_I.sv was successful.
+# Compile of fmap_II.sv was successful.
+# Compile of fmap_III.sv was successful.
+# Compile of line_buffer_group.sv was successful.
+# Compile of mac.sv was successful.
+# Compile of mac_array.sv was successful.
+# Compile of mod_N_counter.sv was successful.
+# Compile of segment7.sv was successful.
+# Compile of sram.sv was successful.
+# Compile of top.sv was successful.
+# Compile of wt_fc1_mem0.sv was successful.
+# Compile of wt_fc1_mem1.sv was successful.
+# Compile of wt_fc1_mem2.sv was successful.
+# Compile of wt_fc1_mem3.sv was successful.
+# Compile of wt_fc1_mem4.sv was successful.
+# Compile of wt_fc1_mem5.sv was successful.
+# Compile of wt_fc1_mem6.sv was successful.
+# Compile of wt_fc1_mem7.sv was successful.
+# Compile of wt_mem0.sv was successful.
+# Compile of wt_mem1.sv was successful.
+# Compile of wt_mem2.sv was successful.
+# Compile of wt_mem3.sv was successful.
+# Compile of wt_mem4.sv was successful.
+# Compile of wt_mem5.sv was successful.
+# Compile of wt_mem6.sv was successful.
+# Compile of wt_mem7.sv was successful.
+# Compile of frame_testbench.sv was successful.
+# Compile of mnist_classifier_top.sv was successful.
+# Compile of RGB2GRAY.sv was successful.
+# Compile of contour.sv was successful.
+# Compile of contour_draw.sv was successful.
+# Compile of mnist_only_testbench.sv was successful.
+# Compile of fifo.vhd was successful.
+# Load canceled
+# Compile of bi_mem0.sv was successful.
+# Compile of cam2cnn.sv was successful.
+# Compile of cnn_receiver.sv was successful.
+# Compile of cnn_sender.sv was successful with warnings.
+# Compile of controller.sv was successful.
+# Compile of ff_line_buffer_groups.sv was successful.
+# Compile of fmap_I.sv was successful.
+# Compile of fmap_II.sv was successful.
+# Compile of fmap_III.sv was successful.
+# Compile of line_buffer_group.sv was successful.
+# Compile of mac.sv was successful.
+# Compile of mac_array.sv was successful.
+# Compile of mod_N_counter.sv was successful.
+# Compile of segment7.sv was successful.
+# Compile of sram.sv was successful.
+# Compile of top.sv was successful.
+# Compile of wt_fc1_mem0.sv was successful.
+# Compile of wt_fc1_mem1.sv was successful.
+# Compile of wt_fc1_mem2.sv was successful.
+# Compile of wt_fc1_mem3.sv was successful.
+# Compile of wt_fc1_mem4.sv was successful.
+# Compile of wt_fc1_mem5.sv was successful.
+# Compile of wt_fc1_mem6.sv was successful.
+# Compile of wt_fc1_mem7.sv was successful.
+# Compile of wt_mem0.sv was successful.
+# Compile of wt_mem1.sv was successful.
+# Compile of wt_mem2.sv was successful.
+# Compile of wt_mem3.sv was successful.
+# Compile of wt_mem4.sv was successful.
+# Compile of wt_mem5.sv was successful.
+# Compile of wt_mem6.sv was successful.
+# Compile of wt_mem7.sv was successful.
+# Compile of frame_testbench.sv was successful.
+# Compile of mnist_classifier_top.sv was successful.
+# Compile of RGB2GRAY.sv was successful.
+# Compile of contour.sv was successful.
+# Compile of contour_draw.sv was successful.
+# Compile of mnist_only_testbench.sv was successful.
+# Compile of fifo.vhd was successful.
+# 39 compiles, 0 failed with no errors.
+vsim work.frame_testbench
+# vsim work.frame_testbench 
+# Start time: 01:24:24 on Jan 13,2020
+# Loading sv_std.std
+# Loading work.frame_testbench
+# Loading work.mnist_classifier_top
+# Loading work.contour_draw
+# Loading work.contour
+# Loading work.RGB2GRAY
+# Loading work.cam2cnn
+# Loading work.top
+# Loading work.controller
+# Loading work.cnn_sender
+# Loading work.mac_array
+# Loading work.cnn_receiver
+# Loading work.ff_line_buffer_groups
+# Loading work.fmap_I
+# Loading work.sram
+# Loading work.fmap_II
+# Loading work.fmap_III
+# Loading work.bi_mem0
+# Loading work.wt_mem0
+# Loading work.wt_mem1
+# Loading work.wt_mem2
+# Loading work.wt_mem3
+# Loading work.wt_mem4
+# Loading work.wt_mem5
+# Loading work.wt_mem6
+# Loading work.wt_mem7
+# Loading work.wt_fc1_mem0
+# Loading work.wt_fc1_mem1
+# Loading work.wt_fc1_mem2
+# Loading work.wt_fc1_mem3
+# Loading work.wt_fc1_mem4
+# Loading work.wt_fc1_mem5
+# Loading work.wt_fc1_mem6
+# Loading work.wt_fc1_mem7
+# Loading work.mod_N_counter
+# Loading work.segment7
+# Loading work.mac
+# Loading work.line_buffer_group
+# ** Warning: (vsim-3017) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): [TFMPC] - Too few port connections. Expected 16, found 12.
+#    Time: 0 ns  Iteration: 0  Instance: /frame_testbench/dut File: /home/gyu/Classes/EECS_493/Project_FPGA/mnist_classifier_top.sv
+# ** Error: (vsim-3063) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): Port 'DIGIT_OUT' not found in the connected module (10th connection).
+#    Time: 0 ns  Iteration: 0  Instance: /frame_testbench/dut File: /home/gyu/Classes/EECS_493/Project_FPGA/mnist_classifier_top.sv
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): [TFMPC] - Missing connection for port 'CONTOUR_MODE'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): [TFMPC] - Missing connection for port 'oVGA_R'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): [TFMPC] - Missing connection for port 'oVGA_G'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): [TFMPC] - Missing connection for port 'oVGA_B'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): [TFMPC] - Missing connection for port 'HEX7'.
+# ** Warning: (vsim-3017) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(159): [TFMPC] - Too few port connections. Expected 5, found 4.
+#    Time: 0 ns  Iteration: 0  Instance: /frame_testbench/pixel_counter File: /home/gyu/Classes/EECS_493/Project_FPGA/mod_N_counter.sv
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(159): [TFMPC] - Missing connection for port 'done'.
+# Error loading design
+# End time: 01:24:25 on Jan 13,2020, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 8
+# Compile of bi_mem0.sv was successful.
+# Compile of cam2cnn.sv was successful.
+# Compile of cnn_receiver.sv was successful.
+# Compile of cnn_sender.sv was successful with warnings.
+# Compile of controller.sv was successful.
+# Compile of ff_line_buffer_groups.sv was successful.
+# Compile of fmap_I.sv was successful.
+# Compile of fmap_II.sv was successful.
+# Compile of fmap_III.sv was successful.
+# Compile of line_buffer_group.sv was successful.
+# Compile of mac.sv was successful.
+# Compile of mac_array.sv was successful.
+# Compile of mod_N_counter.sv was successful.
+# Compile of segment7.sv was successful.
+# Compile of sram.sv was successful.
+# Compile of top.sv was successful.
+# Compile of wt_fc1_mem0.sv was successful.
+# Compile of wt_fc1_mem1.sv was successful.
+# Compile of wt_fc1_mem2.sv was successful.
+# Compile of wt_fc1_mem3.sv was successful.
+# Compile of wt_fc1_mem4.sv was successful.
+# Compile of wt_fc1_mem5.sv was successful.
+# Compile of wt_fc1_mem6.sv was successful.
+# Compile of wt_fc1_mem7.sv was successful.
+# Compile of wt_mem0.sv was successful.
+# Compile of wt_mem1.sv was successful.
+# Compile of wt_mem2.sv was successful.
+# Compile of wt_mem3.sv was successful.
+# Compile of wt_mem4.sv was successful.
+# Compile of wt_mem5.sv was successful.
+# Compile of wt_mem6.sv was successful.
+# Compile of wt_mem7.sv was successful.
+# Compile of frame_testbench.sv was successful.
+# Compile of mnist_classifier_top.sv was successful.
+# Compile of RGB2GRAY.sv was successful.
+# Compile of contour.sv was successful.
+# Compile of contour_draw.sv was successful.
+# Compile of mnist_only_testbench.sv was successful.
+# Compile of fifo.vhd was successful.
+# 39 compiles, 0 failed with no errors.
+vsim work.frame_testbench
+# vsim work.frame_testbench 
+# Start time: 01:26:03 on Jan 13,2020
+# Loading sv_std.std
+# Loading work.frame_testbench
+# Loading work.mnist_classifier_top
+# Loading work.contour_draw
+# Loading work.contour
+# Loading work.RGB2GRAY
+# Loading work.cam2cnn
+# Loading work.top
+# Loading work.controller
+# Loading work.cnn_sender
+# Loading work.mac_array
+# Loading work.cnn_receiver
+# Loading work.ff_line_buffer_groups
+# Loading work.fmap_I
+# Loading work.sram
+# Loading work.fmap_II
+# Loading work.fmap_III
+# Loading work.bi_mem0
+# Loading work.wt_mem0
+# Loading work.wt_mem1
+# Loading work.wt_mem2
+# Loading work.wt_mem3
+# Loading work.wt_mem4
+# Loading work.wt_mem5
+# Loading work.wt_mem6
+# Loading work.wt_mem7
+# Loading work.wt_fc1_mem0
+# Loading work.wt_fc1_mem1
+# Loading work.wt_fc1_mem2
+# Loading work.wt_fc1_mem3
+# Loading work.wt_fc1_mem4
+# Loading work.wt_fc1_mem5
+# Loading work.wt_fc1_mem6
+# Loading work.wt_fc1_mem7
+# Loading work.mod_N_counter
+# Loading work.segment7
+# Loading work.mac
+# Loading work.line_buffer_group
+# ** Warning: (vsim-3017) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): [TFMPC] - Too few port connections. Expected 17, found 12.
+#    Time: 0 ns  Iteration: 0  Instance: /frame_testbench/dut File: /home/gyu/Classes/EECS_493/Project_FPGA/mnist_classifier_top.sv
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): [TFMPC] - Missing connection for port 'CONTOUR_MODE'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): [TFMPC] - Missing connection for port 'oVGA_R'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): [TFMPC] - Missing connection for port 'oVGA_G'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): [TFMPC] - Missing connection for port 'oVGA_B'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): [TFMPC] - Missing connection for port 'HEX7'.
+# ** Warning: (vsim-3017) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(159): [TFMPC] - Too few port connections. Expected 5, found 4.
+#    Time: 0 ns  Iteration: 0  Instance: /frame_testbench/pixel_counter File: /home/gyu/Classes/EECS_493/Project_FPGA/mod_N_counter.sv
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(159): [TFMPC] - Missing connection for port 'done'.
+# ** Warning: Design size of 10512 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint sim:/frame_testbench/*
+run -all
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+#                    0 << .hex file done reading >> 
+#                   80 << rst finished >> 
+#                   80 << Simulation started >> 
+quit -sim
+# End time: 01:33:08 on Jan 13,2020, Elapsed time: 0:07:05
+# Errors: 0, Warnings: 11
+# Compile of bi_mem0.sv was successful.
+# Compile of cam2cnn.sv was successful.
+# Compile of cnn_receiver.sv was successful.
+# Compile of cnn_sender.sv was successful with warnings.
+# Compile of controller.sv was successful.
+# Compile of ff_line_buffer_groups.sv was successful.
+# Compile of fmap_I.sv was successful.
+# Compile of fmap_II.sv was successful.
+# Compile of fmap_III.sv was successful.
+# Compile of line_buffer_group.sv was successful.
+# Compile of mac.sv was successful.
+# Compile of mac_array.sv was successful.
+# Compile of mod_N_counter.sv was successful.
+# Compile of segment7.sv was successful.
+# Compile of sram.sv was successful.
+# Compile of top.sv was successful.
+# Compile of wt_fc1_mem0.sv was successful.
+# Compile of wt_fc1_mem1.sv was successful.
+# Compile of wt_fc1_mem2.sv was successful.
+# Compile of wt_fc1_mem3.sv was successful.
+# Compile of wt_fc1_mem4.sv was successful.
+# Compile of wt_fc1_mem5.sv was successful.
+# Compile of wt_fc1_mem6.sv was successful.
+# Compile of wt_fc1_mem7.sv was successful.
+# Compile of wt_mem0.sv was successful.
+# Compile of wt_mem1.sv was successful.
+# Compile of wt_mem2.sv was successful.
+# Compile of wt_mem3.sv was successful.
+# Compile of wt_mem4.sv was successful.
+# Compile of wt_mem5.sv was successful.
+# Compile of wt_mem6.sv was successful.
+# Compile of wt_mem7.sv was successful.
+# Compile of frame_testbench.sv was successful.
+# Compile of mnist_classifier_top.sv was successful.
+# Compile of RGB2GRAY.sv was successful.
+# Compile of contour.sv was successful.
+# Compile of contour_draw.sv was successful.
+# Compile of mnist_only_testbench.sv was successful.
+# Compile of fifo.vhd was successful.
+# 39 compiles, 0 failed with no errors.
+vsim work.frame_testbench
+# vsim work.frame_testbench 
+# Start time: 01:33:26 on Jan 13,2020
+# Loading sv_std.std
+# Loading work.frame_testbench
+# Loading work.mnist_classifier_top
+# Loading work.contour_draw
+# Loading work.contour
+# Loading work.RGB2GRAY
+# Loading work.cam2cnn
+# Loading work.top
+# Loading work.controller
+# Loading work.cnn_sender
+# Loading work.mac_array
+# Loading work.cnn_receiver
+# Loading work.ff_line_buffer_groups
+# Loading work.fmap_I
+# Loading work.sram
+# Loading work.fmap_II
+# Loading work.fmap_III
+# Loading work.bi_mem0
+# Loading work.wt_mem0
+# Loading work.wt_mem1
+# Loading work.wt_mem2
+# Loading work.wt_mem3
+# Loading work.wt_mem4
+# Loading work.wt_mem5
+# Loading work.wt_mem6
+# Loading work.wt_mem7
+# Loading work.wt_fc1_mem0
+# Loading work.wt_fc1_mem1
+# Loading work.wt_fc1_mem2
+# Loading work.wt_fc1_mem3
+# Loading work.wt_fc1_mem4
+# Loading work.wt_fc1_mem5
+# Loading work.wt_fc1_mem6
+# Loading work.wt_fc1_mem7
+# Loading work.mod_N_counter
+# Loading work.segment7
+# Loading work.mac
+# Loading work.line_buffer_group
+# ** Warning: (vsim-3017) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): [TFMPC] - Too few port connections. Expected 17, found 12.
+#    Time: 0 ns  Iteration: 0  Instance: /frame_testbench/dut File: /home/gyu/Classes/EECS_493/Project_FPGA/mnist_classifier_top.sv
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): [TFMPC] - Missing connection for port 'CONTOUR_MODE'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): [TFMPC] - Missing connection for port 'oVGA_R'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): [TFMPC] - Missing connection for port 'oVGA_G'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): [TFMPC] - Missing connection for port 'oVGA_B'.
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(60): [TFMPC] - Missing connection for port 'HEX7'.
+# ** Warning: (vsim-3017) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(159): [TFMPC] - Too few port connections. Expected 5, found 4.
+#    Time: 0 ns  Iteration: 0  Instance: /frame_testbench/pixel_counter File: /home/gyu/Classes/EECS_493/Project_FPGA/mod_N_counter.sv
+# ** Warning: (vsim-3722) /home/gyu/Classes/EECS_493/Project_FPGA/frame_testbench.sv(159): [TFMPC] - Missing connection for port 'done'.
+# ** Warning: Design size of 10512 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# Expect performance to be adversely affected.
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint sim:/frame_testbench/*
+run -all
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+#                    0 << .hex file done reading >> 
+#                   80 << rst finished >> 
+#                   80 << Simulation started >> 
+add wave -position insertpoint sim:/frame_testbench/dut/u2/*

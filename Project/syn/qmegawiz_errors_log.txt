@@ -1,6 +1,0 @@
-
-
-/home/gyu/Classes/EECS_493/Project/syn/PLL_MAIN.v
-
-Dec 02 10PM:47:22>: Megafunction PLL Intel FPGA IP v18.1 is not listed in any 
-wizard.lst file in the specified library path(s).Wizard launch aborted

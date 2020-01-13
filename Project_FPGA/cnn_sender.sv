@@ -12,10 +12,17 @@ module cnn_sender # (parameter LINE_BUF_GROUPS = 16, LINE_BUFS = 2, KERNEL_DIM =
     input pixel_i_valid,
 
     // Weights I/O
-    output reg [10:0] addr_a [7:0],
-    output reg [10:0] addr_b [7:0],
+    output reg [6:0] addr_a [7:0],
+    output reg [6:0] addr_b [7:0],
     input [143:0] q_a [7:0],
     input [143:0] q_b [7:0],
+
+    //// NEW WEIGHTS i/o
+
+    output reg [9:0] fc_addr_a [7:0],
+    output reg [9:0] fc_addr_b [7:0],
+    input [143:0] fc_q_a [7:0],
+    input [143:0] fc_q_b [7:0],
 
     // Line buffer I/O
     input [15:0] line_buffer_rd_data [LINE_BUF_GROUPS-1:0][1:0], //16b fmap val
@@ -88,29 +95,6 @@ reg valid_i;
 
 // SENDING FSM's position tracker (see where we are in the current input feature map)
 // (essentially a behavioral model of a counter)
-always_comb
-begin
-    current_y_next = current_y;
-    current_x_next = current_x;
-    counter_1b_next = counter_1b;
-    if ((pixel_i_valid & layer == CONV2_layer) | (layer == CONV4_layer)) 
-    begin
-        current_x_next = current_x + 1;
-    end
-    if ((current_x == 29 & layer == CONV2_layer & pixel_i_valid) | 
-        (layer == CONV4_layer & current_x == 13)) 
-    begin
-        current_y_next = current_y + 1;
-        current_x_next = 0;
-        counter_1b_next = ~counter_1b;
-        if ((current_y == 29 & layer == CONV2_layer & pixel_i_valid) | 
-            (layer == CONV4_layer & current_y == 13)) 
-        begin
-            current_y_next = 0;
-            counter_1b_next = 0;
-        end
-    end
-end
 
 // SENDING FSM!
 always_comb
@@ -143,6 +127,8 @@ begin
     begin
         addr_a[k] = 0;
         addr_b[k] = 1;
+        fc_addr_a[k] = 0;
+        fc_addr_b[k] = 1;
     end
     for (k = 0; k < 16; k = k + 1) 
     begin
@@ -160,6 +146,9 @@ begin
     layer_next = layer;
     valid_i = 0;
     send_fmap_next = send_fmap;
+    current_y_next = current_y;
+    current_x_next = current_x;
+    counter_1b_next = counter_1b;
     
     case (state) 
 
@@ -167,11 +156,25 @@ begin
         begin
             if (pixel_i_valid) 
             begin
-                if ((~&current_x[1:0]) & (~|current_x[4:2])) // fill up the line buffer if x <= 2
+
+                current_x_next = current_x + 1;
+                if (current_x == 29) 
+                begin
+                    current_y_next = current_y + 1;
+                    current_x_next = 0;
+                    counter_1b_next = ~counter_1b;
+                    if (current_y == 29) 
+                    begin
+                        current_y_next = 0;
+                        counter_1b_next = 0;
+                    end
+                end
+
+                if ((~&current_x[1:0]) && (~|current_x[4:2])) // fill up the line buffer if x <= 2
                 begin
                     for (k = 0; k < 16; k = k + 1) 
                     begin
-                        reg_buffer_next[current_x][current_y][k] = {1'b0, pixel_i, 7'b0000000}; // pixel_i is an 8-bit gs value divided by 256.
+                        reg_buffer_next[current_x][current_y][k] = {2'b0, pixel_i, 6'b0000000}; // pixel_i is an 8-bit gs value divided by 256.
                     end
                 end
                 if (~current_y[1]) // if y is 0 or 1
@@ -181,7 +184,7 @@ begin
                         line_buffer_wr_en[k][counter_1b] = 1;
                     end
                 end
-                if (current_y[1] & current_x[1]) 
+                if (current_y[1] && current_x[1]) 
                 begin
                     state_next = CONV2_SEND_TO_CNN;
                 end
@@ -195,9 +198,10 @@ begin
             begin
                 line_buffer_rd_addr[k][0] = current_x + 1; 
                 line_buffer_rd_addr[k][1] = current_x + 1; 
-                line_buffer_wr_data[k][counter_1b] = {1'b0, pixel_i, 7'b0000000};
+                line_buffer_wr_data[k][counter_1b] = {2'b0, pixel_i, 6'b0000000};
                 line_buffer_wr_addr[k][counter_1b] = current_x;
             end
+
         end
 
         CONV2_SEND_TO_CNN :
@@ -231,12 +235,12 @@ begin
                 // gives us a valid window (aka we're not currently crossing an edge)
                 //
                 // we have valid window @ (x >= 3 AND y >= 2), (OR x == 0 AND y >= 3)
-                if ( (( ( &current_x[1:0] ) | ( |current_x[4:2] ) ) & ( current_y >= 2 )) | 
-                    (( ~|current_x ) & ( ( &current_y[1:0] ) | ( |current_y[4:2] ) )) ) 
+                if ( (( ( &current_x[1:0] ) || ( |current_x[4:2] ) ) && ( current_y >= 2 )) || 
+                    (( ~|current_x ) && ( ( &current_y[1:0] ) || ( |current_y[4:2] ) )) ) 
                 begin
                     valid_i = 1;
                 end
-                if (current_x == 29 & current_y == 29) 
+                if (current_x == 29 && current_y == 29) 
                 begin        
                     state_next = CONV2_SEND_LAST_WINDOW;
                 end
@@ -269,7 +273,20 @@ begin
                     // get new values for the RIGHTMOST column of the sliding window!
                     reg_buffer_next[2][0][k] = line_buffer_rd_data[k][counter_1b];
                     reg_buffer_next[2][1][k] = line_buffer_rd_data[k][~counter_1b];
-                    reg_buffer_next[2][2][k] = {1'b0, pixel_i, 7'b0000000}; // pos. grayscale, (divide by 256)
+                    reg_buffer_next[2][2][k] = {2'b0, pixel_i, 6'b0000000}; // pos. grayscale, (divide by 256)
+                end
+
+                current_x_next = current_x + 1;
+                if (current_x == 29) 
+                begin
+                    current_y_next = current_y + 1;
+                    current_x_next = 0;
+                    counter_1b_next = ~counter_1b;
+                    if (current_y == 29) 
+                    begin
+                        current_y_next = 0;
+                        counter_1b_next = 0;
+                    end
                 end
             end
         end
@@ -278,8 +295,8 @@ begin
         CONV2_SEND_LAST_WINDOW : 
         begin
             valid_i = 1;
-            state_next = CONV4_FILL_LINE_BUF;
-            layer_next = CONV4_layer;  
+            state_next = CONV4_FILL_LINE_BUF; 
+            layer_next = CONV4_layer; 
             for (k = 0; k < 16; k = k + 1) 
             begin
                 fmap_rd_addr_I[k] = 0;
@@ -290,13 +307,13 @@ begin
         begin
             for (k = 0; k < 16; k = k + 1) 
             begin
-                if ((~&current_x[1:0]) & (~|current_x[4:2])) // fill up the line buffer if x <= 2
+                if ((~&current_x[1:0]) && (~|current_x[4:2])) // fill up the line buffer if x <= 2
                 begin
                     reg_buffer_next[current_x][current_y][k] = fmap_rd_data_I[k];
                 end
                 if (~current_y[1]) 
                 begin
-                    line_buffer_wr_en[k][counter_1b] = 1'b1;
+                    line_buffer_wr_en[k][counter_1b] = 1;
                 end
                 line_buffer_wr_data[k][counter_1b] = fmap_rd_data_I[k];
                 line_buffer_wr_addr[k][counter_1b] = current_x;
@@ -305,7 +322,7 @@ begin
                 fmap_rd_addr_I[k] = {current_y, 4'h0} - {current_y, 1'b0} + current_x + 1;
             end
             // 1st window ready; transition to state where we send out data to cnn
-            if (current_y[1] & current_x[1]) 
+            if ((current_y[1]) && (current_x[1]) )
             begin
                 state_next = CONV4_SEND_TO_CNN;
                 for (k = 0; k < 8; k = k + 1) 
@@ -314,14 +331,27 @@ begin
                     addr_b[k] = 3;
                 end
             end
+
+            current_x_next = current_x + 1;
+            if (current_x == 13)
+            begin
+                current_y_next = current_y + 1;
+                current_x_next = 0;
+                counter_1b_next = ~counter_1b;
+                if (current_y == 13)
+                begin
+                    current_y_next = 0;
+                    counter_1b_next = 0;
+                end
+            end
         end
 
         CONV4_SEND_TO_CNN :
         begin
-            if ( (( ( &current_x[1:0] ) | ( |current_x[4:2] ) ) & ( current_y >= 2 )) | 
-                (( ~|current_x ) & ( ( &current_y[1:0] ) | ( |current_y[4:2] ) )) ) 
+            if ( (( ( &current_x[1:0] ) || ( |current_x[4:2] ) ) && ( current_y >= 2 )) || 
+                (( ~|current_x ) && ( ( &current_y[1:0] ) || ( |current_y[4:2] ) )) ) 
             begin
-                valid_i = 1'b1;
+                valid_i = 1;
             end
 
             for (k = 0; k < 8; k = k + 1) 
@@ -330,7 +360,7 @@ begin
                 addr_b[k] = 2 + {send_fmap, 1'b1};
             end
 
-            if (current_x == 13 & current_y == 13) 
+            if (current_x == 13 && current_y == 13) 
             begin        
                 state_next = CONV4_SEND_LAST_WINDOW;
             end
@@ -369,13 +399,26 @@ begin
 
                 // get new values for the RIGHTMOST column of the sliding window!
                 fmap_rd_addr_I[k] = {current_y, 4'h0} - {current_y, 1'b0} + current_x + 1;
-                if (current_x == 13 & current_y == 13)
+                if (current_x == 13 && current_y == 13)
                 begin
                     fmap_rd_addr_I[k] = 0;
                 end
                 reg_buffer_next[2][0][k] = line_buffer_rd_data[k][counter_1b];
                 reg_buffer_next[2][1][k] = line_buffer_rd_data[k][~counter_1b];
                 reg_buffer_next[2][2][k] = fmap_rd_data_I[k];
+            end
+
+            current_x_next = current_x + 1;
+            if (current_x == 13)
+            begin
+                current_y_next = current_y + 1;
+                current_x_next = 0;
+                counter_1b_next = ~counter_1b;
+                if (current_y == 13)
+                begin
+                    current_y_next = 0;
+                    counter_1b_next = 0;
+                end
             end
         end
 
@@ -384,8 +427,10 @@ begin
             valid_i = 1;
             for (k = 0; k < 8; k = k + 1) 
             begin
+                // SAVE FOR FC7!!!!!!!!!!!!!
                 addr_a[k] = 2 + {send_fmap, 1'b0} + 2;
                 addr_b[k] = 2 + {send_fmap, 1'b1} + 2;
+
             end
             state_next = CONV4_SEND_TO_CNN;
             send_fmap_next = send_fmap + 1;
@@ -393,7 +438,7 @@ begin
             begin     
                 state_next = STALL_FF_FC6;
                 send_fmap_next = 0;
-                layer_next = FC6_layer;
+                
                 reg_buffer_next[0][0][0] = 0;
             end
         end
@@ -401,10 +446,12 @@ begin
         STALL_FF_FC6 :
         begin
             state_next = FF_FC6;
+            layer_next = FC6_layer;
             for (k = 0; k < 8; k = k + 1) 
             begin
-                addr_a[k] = 66;
-                addr_b[k] = 67;
+                // FOR FC6.
+                fc_addr_a[k] = 0;
+                fc_addr_b[k] = 1;
             end
             for (j = 0; j < 144; j = j + 1)
             begin
@@ -418,8 +465,8 @@ begin
             // get the weights
             for (k = 0; k < 8; k = k + 1) 
             begin
-                addr_a[k] = 66 + {reg_buffer[0][0][0][5:0], send_fmap[2:0], 1'b0} + 2;
-                addr_b[k] = 66 + {reg_buffer[0][0][0][5:0], send_fmap[2:0], 1'b1} + 2;
+                fc_addr_a[k] = 0 + {reg_buffer[0][0][0][5:0], send_fmap[2:0], 1'b0} + 2;
+                fc_addr_b[k] = 0 + {reg_buffer[0][0][0][5:0], send_fmap[2:0], 1'b1} + 2;
             end
             // get the 32x (6x6) fmaps from the fmap_II memory
             for (j = 0; j < 144; j = j + 1)
@@ -438,7 +485,6 @@ begin
                 if (&reg_buffer[0][0][0][5:0]) 
                 begin
                     state_next = STALL_FF_FC7;
-                    layer_next = FC7_layer;
                 end
             end
         end
@@ -446,10 +492,15 @@ begin
         STALL_FF_FC7 :
         begin
             state_next = FF_FC7;
+            layer_next = FC7_layer;
             for (k = 0; k < 8; k = k + 1) 
             begin
-                addr_a[k] = 1090;
+                addr_a[k] = 66;
                 addr_b[k] = 1;
+
+                // FOR LAYER 6
+                fc_addr_a[k] = 0;
+                fc_addr_b[k] = 1;
             end
             for (k = 0; k < 64; k = k + 1)
             begin
@@ -463,7 +514,7 @@ begin
             // get the weights
             for (k = 0; k < 8; k = k + 1) 
             begin
-                addr_a[k] = 1090 + send_fmap + 1;
+                addr_a[k] = 66 + send_fmap + 1;
                 if (send_fmap == 9) 
                 begin
                     addr_a[k] = 0;
@@ -562,17 +613,28 @@ begin
 
     endcase
 
-    for (int yu = 0; yu < 8; yu = yu + 1) 
+    if (layer != FC6_layer)
     begin
-        wt_next[yu] = q_a[yu];
-        wt_next[yu + 8] = q_b[yu];
+        for (int yu = 0; yu < 8; yu = yu + 1) 
+        begin
+            wt_next[yu] = q_a[yu];
+            wt_next[yu + 8] = q_b[yu];
+        end
+    end 
+    else
+    begin
+        for (int yuu = 0; yuu < 8; yuu = yuu + 1) 
+        begin
+            wt_next[yuu] = fc_q_a[yuu];
+            wt_next[yuu + 8] = fc_q_b[yuu];
+        end
     end
 end
 
 // dff 
-always_ff @(posedge clk or posedge rst) 
+always_ff @(posedge clk or negedge rst) 
 begin
-    if (rst) 
+    if (~rst) 
     begin
         for (q = 0; q < KERNEL_DIM; q = q + 1) 
         begin

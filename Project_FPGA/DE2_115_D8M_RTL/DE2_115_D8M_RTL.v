@@ -148,7 +148,7 @@ assign HEX3           = 7'h7F;
 assign HEX4           = 7'h7F;
 assign HEX5           = 7'h7F;
 assign HEX6           = 7'h7F;
-assign HEX7           = 7'h7F;
+// assign HEX7           = 7'h7F;
 
 //------ MIPI BRIGE & CAMERA RESET  --
 assign CAMERA_PWDN_n  = 1; 
@@ -267,6 +267,9 @@ AUTO_FOCUS_ON  vd(
 					
 
 //------AOTO FOCUS ADJ  --
+wire [7:0] VGA_R_FOCUSED;
+wire [7:0] VGA_G_FOCUSED;
+wire [7:0] VGA_B_FOCUSED;
 FOCUS_ADJ adl(
                       .CLK_50        ( CLOCK2_50 ) , 
                       .RESET_N       ( I2C_RELEASE ), 
@@ -283,9 +286,9 @@ FOCUS_ADJ adl(
                       .iR            ( R_AUTO ), 
                       .iG            ( G_AUTO ), 
                       .iB            ( B_AUTO ), 
-                      .oR            ( VGA_R ) , 
-                      .oG            ( VGA_G ) , 
-                      .oB            ( VGA_B ) , 
+                      .oR            (  VGA_R_FOCUSED  ) , 
+                      .oG            (  VGA_G_FOCUSED  ) , 
+                      .oB            (  VGA_B_FOCUSED  ) , 
                       
                       .READY         ( READY ),
                       .SCL           ( CAMERA_I2C_SCL_AF ), 
@@ -336,4 +339,36 @@ CLOCKMEM  ck3 ( .CLK(MIPI_PIXEL_CLK_)   ,.CLK_FREQ  (25000000  ) , . CK_1HZ (D8M
 
 assign LEDR = { D8M_CK_HZ ,D8M_CK_HZ2,D8M_CK_HZ3 ,5'h0,CAMERA_MIPI_RELAESE ,MIPI_BRIDGE_RELEASE  } ; 
 //*/
+
+
+
+// Connect design core to the camera driver
+mnist_classifier_top APPLICATION_BLOCK 
+(
+	/////// INPUT VGA SIGNALS
+	.VGA_CLK		( VGA_CLK ),
+	.RESET_N		( DLY_RST_2	),
+	.VGA_HS			( VGA_HS ),
+	.VGA_VS			( VGA_VS ),
+	.CONTOUR_MODE	( SW[0]	),
+	.VGA_H_CNT		( VGA_H_CNT ),
+	.VGA_V_CNT		( VGA_V_CNT ),
+	.iVGA_R			( VGA_R_FOCUSED ),
+	.iVGA_G			( VGA_G_FOCUSED ),
+	.iVGA_B			( VGA_B_FOCUSED ),
+
+	/////// OUTPUT TO VGA DISPLAY
+	.oVGA_R			( VGA_R ),
+	.oVGA_G			( VGA_G ),
+	.oVGA_B			( VGA_B ),
+
+	///////	CLASSIFICATION OUTPUT TO 7SEG DISPLAY
+	.HEX7		( HEX7 ),
+
+	/////// LED OUTPUTS
+	.DIGIT_VALID_OUTPUT	( LEDG[0] ),
+	.BOX_VALID			( LEDG[1] ),
+);
+
+
 endmodule
