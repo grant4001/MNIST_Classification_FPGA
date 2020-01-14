@@ -26,7 +26,9 @@ The hardware was written in SystemVerilog, the synthesis was done in Quartus Pri
 
 (3) VGA Monitor
 
-Thanks for reading! If you have any questions or concerns about this project, please email me at grantyu2020@u.northwestern.edu.
+Finally, thanks for checking out my project! My intention is to provide the FPGA/ASIC and ML community with a complete reference base that serves as a jumpstart for projects in ML acceleration. If you have any questions or concerns about this project, please email me at grantyu2020@u.northwestern.edu. 
+
+
 
 EXTRAS:
 
