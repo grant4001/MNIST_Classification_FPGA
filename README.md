@@ -16,7 +16,7 @@ The CNN architecture is a 7-layer network which features a mix of convolutional,
   <img src="https://github.com/grant4001/MNIST_Classification_FPGA/blob/master/images/flow.png">
 </p>
 
-A highly-optimized GPU-like MAC (Multiplier-Accumulator) array core is implemented in the fabric of the FPGA, which allows for efficient, parallelized computation of activations. Other hardware blocks are optimized to perform pertinent tasks such as memory control, line buffering, and tensor sending and receiving. 
+A highly-optimized GPU-like MAC (Multiplier-Accumulator) array core is implemented in the fabric of the FPGA, which allows for efficient, parallelized computation of activation layers. Other hardware blocks are optimized to perform tasks such as memory control, line buffering, and tensor sending and receiving. In addition, a specialized sliding window implementation of a line buffer is used to send feature map data to the first two convolutional layers, to avoid expensive memory accesses.
 
 The hardware is described using SystemVerilog, the synthesis was done using Quartus Prime Lite 18.1, and the simulation was done using vsim (ModelSim) and Incisiv. The target device is the Cyclone IV FPGA. The list of primary components used is as follows:
 
