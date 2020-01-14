@@ -1,7 +1,7 @@
 # MNIST_Classification_FPGA
 
 
-| Demos |
+
 | Demo Pt. 1 | Demo Pt. 2 |
 | ---------- | ---------- |
 | <a href="https://imgflip.com/gif/3m1jlr"><img src="https://i.imgflip.com/3m1jlr.gif" title="made at imgflip.com"/></a> | <a href="https://imgflip.com/gif/3m1kcb"><img src="https://i.imgflip.com/3m1kcb.gif" title="made at imgflip.com"/></a> |
