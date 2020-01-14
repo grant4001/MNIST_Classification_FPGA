@@ -8,7 +8,9 @@ MATLAB was used to train the CNN; existing versions of the feed-forward and back
 
 The CNN architecture is a 7-layer network which features a mix of convolutional, pooling, and fully connected layers. The input layer is a 30x30 grayscale MNIST image, and the output is a 10x1 classification vector.
 
-![alt text](https://github.com/grant4001/MNIST_Classification_FPGA/blob/master/images/flow.png)
+<p align="center">
+  <img src="https://github.com/grant4001/MNIST_Classification_FPGA/blob/master/images/flow.png">
+</p>
 
 A highly-optimized GPU-like MAC (Multiplier-Accumulator) array core is implemented in the fabric of the FPGA, which allows for efficient, parallelized computation of activations. Other hardware blocks are optimized to perform pertinent tasks such as memory control, line buffering, and tensor sending and receiving. 
 
