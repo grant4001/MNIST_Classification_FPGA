@@ -17,11 +17,14 @@ A highly-optimized GPU-like MAC (Multiplier-Accumulator) array core is implement
 The hardware is described using SystemVerilog, the synthesis was done using Quartus Prime Lite 18.1, and the simulation was done using vsim (ModelSim). The target device is the Cyclone IV FPGA. The list of primary components used is as follows:
 
 (1) Terasic DE2-115 University Program Development Board
+
 (2) Terasic D8M GPIO (Image sensor)
+
 (3) VGA Monitor
 
 To run, connect all of these components together. Hook up a USB cable from your computer to the USB blaster port of the DE2-115. 
 
 Go into Project_FPGA/DE2_115_D8M_RTL/demo_batch and (if you're running Linux) modify test.sh so that your Quartus directories are in the right place.
+
 Open the terminal, type "./test.sh", and press enter. If you're running Windows, type "test.bat", and press enter.
 
