@@ -1,6 +1,6 @@
 # MNIST_Classification_FPGA
 
-![Demo](https://github.com/grant4001/MNIST_Classification_FPGA/blob/master/demo/demo.gif)
+<a href="https://imgflip.com/gif/3m1jlr"><img src="https://i.imgflip.com/3m1jlr.gif" title="made at imgflip.com"/></a>
 
 In this research project, I intend to explore deep learning acceleration on an FPGA platform. One subcategory of problems in the deep learning space is image processing/classification, which is used in real-time embedded applications such as autonomous driving, face recognition, robotics, and medical diagnosis. The benchmark chosen for this project is handwritten digit classification, which uses the MNIST dataset for training and testing. The ML architecture used is the Convolutional Neural Network, which exploits the spatial dependence of visual features. 
 
