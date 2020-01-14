@@ -23,6 +23,6 @@ Open the terminal, type "./test.sh", and press enter. If you're running Windows,
 
 Demo below. 
 
-<iframe src='https://gfycat.com/ifr/DeliriousSmoggyAngwantibo' frameborder='0' scrolling='no' allowfullscreen width='640' height='1182'></iframe><p> <a href="https://gfycat.com/delirioussmoggyangwantibo">via Gfycat</a></p>
+<div style='position:relative; padding-bottom:calc(177.78% + 44px)'><iframe src='https://gfycat.com/ifr/DeliriousSmoggyAngwantibo' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div><p> <a href="https://gfycat.com/delirioussmoggyangwantibo">via Gfycat</a></p>
 
 
