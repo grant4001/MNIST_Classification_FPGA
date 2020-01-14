@@ -22,6 +22,6 @@ Go into Project_FPGA/DE2_115_D8M_RTL/demo_batch and (if you're running Linux) mo
 Open the terminal, type "./test.sh", and press enter. If you're running Windows, type "test.bat", and press enter.
 
 Demo below. 
-https://gfycat.com/delirioussmoggyangwantibo
+<iframe src='https://gfycat.com/ifr/DeliriousSmoggyAngwantibo' frameborder='0' scrolling='no' allowfullscreen width='640' height='1182'></iframe><p> <a href="https://gfycat.com/delirioussmoggyangwantibo">via Gfycat</a></p>
 
 
