@@ -26,13 +26,13 @@ The hardware was written in SystemVerilog, the synthesis was done in Quartus Pri
 
 (3) VGA Monitor
 
+Thanks for reading! If you have any questions or concerns about this project, please email me at grantyu2020@u.northwestern.edu.
+
+EXTRAS:
+
 To synthesize, open Project_FPGA/DE2_115_D8M_RTL/DE2_115_D8M_RTL.qpf on Quartus Prime. Hit "Compile Design."
 
 Connect all of these components together. Hook up a USB cable from your computer to the USB blaster port of the DE2-115. To run, go into Project_FPGA/DE2_115_D8M_RTL/demo_batch and (if you're running Linux) modify test.sh so that your Quartus directories are in the right place. Open the terminal, type "./test.sh", and press enter. If you're running Windows, type "test.bat", and press enter.
-
-
-
-EXTRAS:
 
 Simulation Screenshot:
 <p align="center">
