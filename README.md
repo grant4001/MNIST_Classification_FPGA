@@ -19,7 +19,7 @@ The CNN architecture is a 7-layer network which features a mix of convolutional,
 
 A highly-optimized GPU-like MAC (Multiplier-Accumulator) array core is implemented in the fabric of the FPGA, which allows for efficient, parallelized computation of activations. Other hardware blocks are optimized to perform pertinent tasks such as memory control, line buffering, and tensor sending and receiving. 
 
-The hardware is described using SystemVerilog, the synthesis was done using Quartus Prime Lite 18.1, and the simulation was done using vsim (ModelSim). The target device is the Cyclone IV FPGA. The list of primary components used is as follows:
+The hardware is described using SystemVerilog, the synthesis was done using Quartus Prime Lite 18.1, and the simulation was done using vsim (ModelSim) and Incisiv. The target device is the Cyclone IV FPGA. The list of primary components used is as follows:
 
 (1) Terasic DE2-115 University Program Development Board
 
@@ -30,4 +30,20 @@ The hardware is described using SystemVerilog, the synthesis was done using Quar
 To synthesize, open Project_FPGA/DE2_115_D8M_RTL/DE2_115_D8M_RTL.qpf on Quartus Prime. Hit "Compile Design."
 
 Connect all of these components together. Hook up a USB cable from your computer to the USB blaster port of the DE2-115. To run, go into Project_FPGA/DE2_115_D8M_RTL/demo_batch and (if you're running Linux) modify test.sh so that your Quartus directories are in the right place. Open the terminal, type "./test.sh", and press enter. If you're running Windows, type "test.bat", and press enter.
+
+
+
+EXTRAS:
+
+Simulation Screenshot:
+<p align="center">
+  <img src="https://github.com/grant4001/MNIST_Classification_FPGA/blob/master/images/SimulationScreenCap.png">
+</p>
+
+Quartus Compilation Screenshot:
+<p align="center">
+  <img src="https://github.com/grant4001/MNIST_Classification_FPGA/blob/master/images/quartus_syn.png">
+</p>
+
+
 
