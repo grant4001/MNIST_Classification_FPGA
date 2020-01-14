@@ -1,5 +1,7 @@
 # MNIST_Classification_FPGA
 
+<iframe src='https://gfycat.com/ifr/DeliriousSmoggyAngwantibo' frameborder='0' scrolling='no' allowfullscreen width='640' height='1182'></iframe><p> <a href="https://gfycat.com/delirioussmoggyangwantibo">via Gfycat</a></p>
+
 In this research project, I intend to explore deep learning acceleration on an FPGA platform. One subcategory of problems in the deep learning space is image processing/classification, which is used in real-time embedded applications such as autonomous driving, face recognition, robotics, and medical diagnosis. The benchmark chosen for this project is handwritten digit classification, which uses the MNIST dataset for training and testing. The ML architecture used is the Convolutional Neural Network, which exploits the spatial dependence of visual features. 
 
 MATLAB was used to train the CNN; existing versions of the feed-forward and back-propagation algorithms, provided by Ashutosh Kumar Upadhyay, were used (source: https://www.mathworks.com/matlabcentral/fileexchange/59223-convolution-neural-network-simple-code-simple-to-use). 
@@ -20,9 +22,4 @@ To run, connect all of these components together. Hook up a USB cable from your 
 
 Go into Project_FPGA/DE2_115_D8M_RTL/demo_batch and (if you're running Linux) modify test.sh so that your Quartus directories are in the right place.
 Open the terminal, type "./test.sh", and press enter. If you're running Windows, type "test.bat", and press enter.
-
-Demo below. 
-
-<div style='position:relative; padding-bottom:calc(177.78% + 44px)'><iframe src='https://gfycat.com/ifr/DeliriousSmoggyAngwantibo' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div><p> <a href="https://gfycat.com/delirioussmoggyangwantibo">via Gfycat</a></p>
-
 
