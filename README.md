@@ -6,7 +6,7 @@
 | ---------- | ---------- | ---------- |
 | <a href="https://imgflip.com/gif/3m1jlr"><img src="https://i.imgflip.com/3m1jlr.gif" title="made at imgflip.com"/></a> | <a href="https://imgflip.com/gif/3m1kcb"><img src="https://i.imgflip.com/3m1kcb.gif" title="made at imgflip.com"/></a> | <a href="https://imgflip.com/gif/3m1l4s"><img src="https://i.imgflip.com/3m1l4s.gif" title="made at imgflip.com"/></a> |
 
-Over the past decade, we have witnessed a significant boom in the machine learning and deep learning realm. A major subcategory of problems within the deep learning space is image processing and classification, which is widely used in real-time embedded applications such as autonomous driving, face recognition, robotics, and medical diagnosis. The booming popularity and work done on deep learning provides ample motivation to find ways to optimize and accelerate these algorithms, especially on unique computing platforms. For this project, we implemented a Convolutional Neural Network that uses MNIST handwritten digit classification as the benchmark. 
+Over the past decade, we have witnessed a significant boom in the machine learning and deep learning realm. A major subcategory of problems within the deep learning space is image processing and classification, which is widely used in real-time embedded applications such as autonomous driving, face recognition, robotics, and medical diagnosis. The booming popularity and work done on deep learning provides ample motivation to find ways to optimize and accelerate these algorithms, especially on unique computing platforms. For this project, I implemented a Convolutional Neural Network that uses MNIST handwritten digit classification as the benchmark. 
 
 MATLAB was used to train the CNN; existing versions of the feed-forward and back-propagation algorithms, provided by Ashutosh Kumar Upadhyay, were used (source: https://www.mathworks.com/matlabcentral/fileexchange/59223-convolution-neural-network-simple-code-simple-to-use). 
 
@@ -18,7 +18,7 @@ The CNN architecture is a 7-layer network which features a mix of convolutional,
 
 A highly-optimized GPU-like MAC (Multiplier-Accumulator) array core is implemented in the fabric of the FPGA, which allows for efficient, parallelized computation of activation layers. Other hardware blocks are optimized to perform tasks such as memory control, line buffering, and tensor sending and receiving. In addition, a specialized sliding window implementation of a line buffer is used to send feature map data to the first two convolutional layers, to avoid expensive memory accesses.
 
-The hardware is described using SystemVerilog, the synthesis was done using Quartus Prime Lite 18.1, and the simulation was done using vsim (ModelSim) and Incisiv. The target device is the Cyclone IV FPGA. The list of primary components used is as follows:
+The hardware was written in SystemVerilog, the synthesis was done in Quartus Prime (Lite) v18.1, and simulations were done on vsim (ModelSim) and Cadence Incisiv. The targetted device was the Intel Cyclone IV FPGA. The list of primary components used is as follows:
 
 (1) Terasic DE2-115 University Program Development Board
 
