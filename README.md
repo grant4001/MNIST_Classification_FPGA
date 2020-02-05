@@ -34,7 +34,6 @@ the valid portion of the frame. In order to configure the FPGA to address the cl
 use a hardware descriptive language (HDL). For this project, we choose SystemVerilog HDL to synthesize
 all of the necessary hardware blocks.
 
-
 <p align="center">
   <img src="https://github.com/grant4001/MNIST_Classification_FPGA/blob/master/images/diagram.png">
 </p>
@@ -76,7 +75,6 @@ in the final layer. The max() function is then applied to the 10x1 vector to get
 
 Classification simulation results are shown below.
 
-Simulation Screenshot:
 <p align="center">
   <img src="https://github.com/grant4001/MNIST_Classification_FPGA/blob/master/images/SimulationScreenCap.png">
 </p>
@@ -112,10 +110,9 @@ In general, the hardware system outlined above shows potential usage for:
 
 ● Hardware designers who need a reference to a working system involving machine learning
 
-● Students in machine learning or FPGA design seeking to learn HDL techniques for machine
-learning
+● Students in machine learning or FPGA design seeking to learn HDL techniques for machine learning
 
-**Section III. Design File Descriptions
+**Section III. Design File Descriptions**
 
 (All design files are licensed under the GNU General Public License v3.0)
 
